@@ -9,9 +9,9 @@ type Props = {
 };
 
 const SearchExample = ({ navigation }: Props) => {
-  const [firstQuery, setFirstQuery] = React.useState<string>('');
-  const [secondQuery, setSecondQuery] = React.useState<string>('');
-  const [thirdQuery, setThirdQuery] = React.useState<string>('');
+  const [firstQuery, setFirstQuery] = React.useState('');
+  const [secondQuery, setSecondQuery] = React.useState('');
+  const [thirdQuery, setThirdQuery] = React.useState('');
 
   return (
     <ScreenWrapper>

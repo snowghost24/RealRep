@@ -4,7 +4,7 @@ import { Snackbar, Button } from 'react-native-paper';
 import ScreenWrapper from '../ScreenWrapper';
 
 const SnackbarExample = () => {
-  const [visible, setVisible] = React.useState<boolean>(false);
+  const [visible, setVisible] = React.useState(false);
 
   return (
     <ScreenWrapper contentContainerStyle={styles.container}>

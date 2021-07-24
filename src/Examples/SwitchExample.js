@@ -4,8 +4,8 @@ import { Paragraph, Switch, Colors, TouchableRipple } from 'react-native-paper';
 import ScreenWrapper from '../ScreenWrapper';
 
 const SwitchExample = () => {
-  const [valueNormal, setNormalValue] = React.useState<boolean>(true);
-  const [valueCustom, setCustomValue] = React.useState<boolean>(true);
+  const [valueNormal, setNormalValue] = React.useState(true);
+  const [valueCustom, setCustomValue] = React.useState(true);
 
   const switchValueNormalLabel = `switch ${
     valueNormal === true ? 'on' : 'off'

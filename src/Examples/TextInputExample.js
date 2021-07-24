@@ -2,7 +2,7 @@ import * as React from 'react';
 import { StyleSheet, View, KeyboardAvoidingView, Platform } from 'react-native';
 import { TextInput, HelperText, useTheme } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { inputReducer, State } from '../../utils';
+import { inputReducer, State } from '../utils/index';
 import ScreenWrapper from '../ScreenWrapper';
 
 const MAX_LENGTH = 20;
@@ -37,11 +37,9 @@ const initialState: State = {
   },
 };
 
-type AvoidingViewProps = {
-  children: React.ReactNode;
-};
 
-const TextInputAvoidingView = ({ children }: AvoidingViewProps) => {
+
+const TextInputAvoidingView = ({ children }) => {
   return Platform.OS === 'ios' ? (
     <KeyboardAvoidingView
       style={styles.wrapper}
@@ -93,13 +91,13 @@ const TextInputExample = () => {
     colors: { accent, primary },
   } = useTheme();
 
-  const inputActionHandler = (type: keyof State, payload: string) =>
+  const inputActionHandler = (type, payload) =>
     dispatch({
       type: type,
       payload: payload,
     });
 
-  const changeIconColor = (name: keyof State['iconsColor']) => {
+  const changeIconColor = (name ) => {
     const color = state.iconsColor[name];
 
     const colors = {

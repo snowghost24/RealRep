@@ -8,7 +8,7 @@ const PHOTOS = Array.from({ length: 24 }).map(
 );
 
 const BannerExample = () => {
-  const [visible, setVisible] = React.useState<boolean>(true);
+  const [visible, setVisible] = React.useState(true);
 
   return (
     <>
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     web: {
       grid: {
         // there is no 'grid' type in RN :(
-        display: 'grid' as 'none',
+        display: 'none',
         gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
         gridRowGap: '8px',
         gridColumnGap: '8px',

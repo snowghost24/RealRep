@@ -4,8 +4,8 @@ import { Button, ProgressBar, Paragraph, Colors } from 'react-native-paper';
 import ScreenWrapper from '../ScreenWrapper';
 
 const ProgressBarExample = () => {
-  const [visible, setVisible] = React.useState<boolean>(true);
-  const [progress, setProgress] = React.useState<number>(0.3);
+  const [visible, setVisible] = React.useState(true);
+  const [progress, setProgress] = React.useState(0.3);
 
   return (
     <ScreenWrapper contentContainerStyle={styles.container}>

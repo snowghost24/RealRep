@@ -15,7 +15,7 @@ type ButtonVisibility = {
 };
 
 const DialogExample = () => {
-  const [visible, setVisible] = React.useState<ButtonVisibility>({});
+  const [visible, setVisible] = React.useState({});
 
   const _toggleDialog = (name: string) => () =>
     setVisible({ ...visible, [name]: !visible[name] });

@@ -5,7 +5,7 @@ import color from 'color';
 import ScreenWrapper from '../ScreenWrapper';
 
 const ChipExample = () => {
-  const [visible, setVisible] = React.useState<boolean>(false);
+  const [visible, setVisible] = React.useState(false);
   const { colors } = useTheme();
 
   return (

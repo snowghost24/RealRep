@@ -17,7 +17,7 @@ type Props = {
 type CheckedState = 'normal' | 'first' | 'second' | 'third' | 'fourth';
 
 const DialogWithRadioBtns = ({ visible, close }: Props) => {
-  const [checked, setChecked] = React.useState<CheckedState>('normal');
+  const [checked, setChecked] = React.useState('normal');
 
   return (
     <Portal>

@@ -4,7 +4,7 @@ import { ActivityIndicator, Colors, FAB } from 'react-native-paper';
 import ScreenWrapper from '../ScreenWrapper';
 
 const ActivityIndicatorExample = () => {
-  const [animating, setAnimating] = React.useState<boolean>(true);
+  const [animating, setAnimating] = React.useState(true);
 
   return (
     <ScreenWrapper style={styles.container}>

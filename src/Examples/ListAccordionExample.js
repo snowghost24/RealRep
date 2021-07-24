@@ -3,7 +3,7 @@ import { List, Divider } from 'react-native-paper';
 import ScreenWrapper from '../ScreenWrapper';
 
 const ListAccordionExample = () => {
-  const [expanded, setExpanded] = React.useState<boolean>(true);
+  const [expanded, setExpanded] = React.useState(true);
 
   const _handlePress = () => {
     setExpanded(!expanded);

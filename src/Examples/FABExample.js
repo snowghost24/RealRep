@@ -4,8 +4,8 @@ import { FAB, Portal } from 'react-native-paper';
 import ScreenWrapper from '../ScreenWrapper';
 
 const ButtonExample = () => {
-  const [visible, setVisible] = React.useState<boolean>(true);
-  const [open, setOpen] = React.useState<boolean>(false);
+  const [visible, setVisible] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
 
   return (
     <ScreenWrapper style={styles.container}>
@@ -71,7 +71,7 @@ const ButtonExample = () => {
                 small: false,
               },
             ]}
-            onStateChange={({ open }: { open: boolean }) => setOpen(open)}
+            onStateChange={({ open }) => setOpen(open)}
             onPress={() => {
               if (open) {
                 // do something if the speed dial is open

@@ -11,9 +11,9 @@ type ItemsState = Array<{
 }>;
 
 const DataTableExample = () => {
-  const [sortAscending, setSortAscending] = React.useState<boolean>(true);
-  const [page, setPage] = React.useState<number>(0);
-  const [items] = React.useState<ItemsState>([
+  const [sortAscending, setSortAscending] = React.useState(true);
+  const [page, setPage] = React.useState(0);
+  const [items] = React.useState([
     {
       key: 1,
       name: 'Cupcake',

@@ -6,9 +6,9 @@ import ScreenWrapper from '../ScreenWrapper';
 type StatusState = 'checked' | 'unchecked';
 
 const ToggleButtonExample = () => {
-  const [first, setFirst] = React.useState<string>('bold');
-  const [fruit, setFruit] = React.useState<string>('watermelon');
-  const [status, setStatus] = React.useState<StatusState>('checked');
+  const [first, setFirst] = React.useState('bold');
+  const [fruit, setFruit] = React.useState('watermelon');
+  const [status, setStatus] = React.useState('checked');
 
   return (
     <ScreenWrapper>

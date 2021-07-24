@@ -5,7 +5,7 @@ import ScreenWrapper from '../ScreenWrapper';
 type State = string | number | undefined;
 
 const ListAccordionGroupExample = () => {
-  const [expandedId, setExpandedId] = React.useState<State>(undefined);
+  const [expandedId, setExpandedId] = React.useState(undefined);
 
   const _onAccordionPress = (newExpandedId: string | number) =>
     expandedId === newExpandedId

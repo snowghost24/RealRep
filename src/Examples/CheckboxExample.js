@@ -9,9 +9,9 @@ import {
 import ScreenWrapper from '../ScreenWrapper';
 
 const CheckboxExample = () => {
-  const [checkedNormal, setCheckedNormal] = React.useState<boolean>(true);
-  const [checkedCustom, setCheckedCustom] = React.useState<boolean>(true);
-  const [indeterminate, setIndeterminate] = React.useState<boolean>(true);
+  const [checkedNormal, setCheckedNormal] = React.useState(true);
+  const [checkedCustom, setCheckedCustom] = React.useState(true);
+  const [indeterminate, setIndeterminate] = React.useState(true);
 
   return (
     <ScreenWrapper style={styles.container}>

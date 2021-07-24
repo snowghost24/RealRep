@@ -11,7 +11,7 @@ import ScreenWrapper from '../ScreenWrapper';
 type State = 'normal' | 'normal-ios' | 'normal-item' | 'custom';
 
 const RadioButtonExample = () => {
-  const [checked, setChecked] = React.useState<State>('normal');
+  const [checked, setChecked] = React.useState('normal');
 
   return (
     <ScreenWrapper style={styles.container}>

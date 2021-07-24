@@ -11,7 +11,7 @@ import {
 import ScreenWrapper from '../ScreenWrapper';
 
 const BadgeExample = () => {
-  const [visible, setVisible] = React.useState<boolean>(true);
+  const [visible, setVisible] = React.useState(true);
 
   return (
     <ScreenWrapper>

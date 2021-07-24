@@ -4,10 +4,6 @@ import type { StackNavigationProp } from '@react-navigation/stack';
 import { Appbar, FAB, Switch, Paragraph } from 'react-native-paper';
 import ScreenWrapper from '../ScreenWrapper';
 
-type Props = {
-  navigation: StackNavigationProp<{}>;
-};
-
 const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical';
 
 const AppbarExample = ({ navigation }: Props) => {

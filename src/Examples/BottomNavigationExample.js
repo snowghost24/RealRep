@@ -3,17 +3,17 @@ import { View, Image, Dimensions, StyleSheet, Platform } from 'react-native';
 import { BottomNavigation } from 'react-native-paper';
 import ScreenWrapper from '../ScreenWrapper';
 
-type RoutesState = Array<{
-  key: string;
-  title: string;
-  icon: string;
-  color?: string;
-  badge?: boolean;
-  getAccessibilityLabel?: string;
-  getTestID?: string;
-}>;
+// type RoutesState = Array<{
+//   key: string;
+//   title: string;
+//   icon: string;
+//   color?: string;
+//   badge?: boolean;
+//   getAccessibilityLabel?: string;
+//   getTestID?: string;
+// }>;
 
-type Route = { route: { key: string } };
+// type Route = { route: { key: string } };
 
 const PhotoGallery = ({ route }: Route) => {
   const PHOTOS = Array.from({ length: 24 }).map(
@@ -33,7 +33,7 @@ const PhotoGallery = ({ route }: Route) => {
 
 const BottomNavigationExample = () => {
   const [index, setIndex] = React.useState(0);
-  const [routes] = React.useState<RoutesState>([
+  const [routes] = React.useState([
     { key: 'album', title: 'Album', icon: 'image-album', color: '#6200ee' },
     {
       key: 'library',
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     web: {
       content: {
         // there is no 'grid' type in RN :(
-        display: 'grid' as 'none',
+        display: 'none',
         gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
         gridRowGap: '8px',
         gridColumnGap: '8px',
