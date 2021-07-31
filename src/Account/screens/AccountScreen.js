@@ -6,25 +6,17 @@ import {
     AccountCover,
     AccountContainer,
     AuthButton,
-    Title,
 } from '../components/Account.styles';
+import { Title } from 'react-native-paper';
 import { Spacer } from '../components/Spacer/Spacer';
+import ScreenWrapper from "../../ScreenWrapper";
 // import { LottieAnimationWrapper } from '../../../components/LottieAnimationWrapper/LottieAnimationWrapper';
 
 export const AccountScreen = ({ navigation }) => {
     return (
         <AccountBackground>
-            <AccountCover />
-            {/*<LottieAnimationWrapper>*/}
-            {/*    <LottieView*/}
-            {/*        key="animation"*/}
-            {/*        resizeMode="cover"*/}
-            {/*        autoPlay*/}
-            {/*        loop*/}
-            {/*        source={require('../../../../assets/animations/watermelon-lottie.json')}*/}
-            {/*    />*/}
-            {/*</LottieAnimationWrapper>*/}
-            <Title variant="caption">YumMeals</Title>
+            {/*<AccountCover />*/}
+            <Title>Real Rep</Title>
             <AccountContainer>
                 <AuthButton
                     icon="lock-open-outline"
@@ -34,13 +26,13 @@ export const AccountScreen = ({ navigation }) => {
                     Login
                 </AuthButton>
                 <Spacer size="large">
-                    <AuthButton
-                        icon="email"
-                        mode="contained"
-                        onPress={() => navigation.navigate('Register')}
-                    >
-                        Register
-                    </AuthButton>
+                <AuthButton
+                    icon="email"
+                    mode="contained"
+                    onPress={() => navigation.navigate('Register')}
+                >
+                    Register
+                </AuthButton>
                 </Spacer>
             </AccountContainer>
         </AccountBackground>

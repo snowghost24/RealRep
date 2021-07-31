@@ -1,43 +1,31 @@
-// import React from 'react';
-// import { View } from 'react-native';
-// import styled, { useTheme } from 'styled-components/native';
-//
-// const sizeVariant = {
-//     small: 1,
-//     medium: 2,
-//     large: 3,
-//     xl: 4,
-//     xxl: 5,
-// };
-//
-// const positionVariant = {
-//     top: 'marginTop',
-//     left: 'marginLeft',
-//     right: 'marginRight',
-//     bottom: 'marginBottom',
-// };
-//
-// const getVariant = (position, size, theme) => {
-//     const sizeIndex = sizeVariant[size];
-//     const property = positionVariant[position];
-//     const value = 8;
-//         // theme.space[sizeIndex];
-//
-//     return `${property}:${value}`;
-// };
-//
-// const SpacerView = styled(View)`
-//   ${({ variant }) => variant};
-// `;
-//
-// export const Spacer = ({ position, size, children }) => {
-//     const theme = useTheme();
-//     const variant = getVariant(position, size, theme);
-//
-//     return <SpacerView variant={variant}>{children}</SpacerView>;
-// };
-//
-// Spacer.defaultProps = {
-//     position: 'top',
-//     size: 'small',
-// };
+import React from 'react';
+import { View } from 'react-native';
+import {useTheme} from "react-native-paper";
+
+const sizeVariant = {
+    small: 1,
+    medium: 2,
+    large: 3,
+    xl: 4,
+    xxl: 5,
+};
+
+const positionVariant = {
+    top: 'marginTop',
+    left: 'marginLeft',
+    right: 'marginRight',
+    bottom: 'marginBottom',
+};
+
+export const Spacer = (props) => {
+    const sizeIndex = sizeVariant[props.size];
+    const property = positionVariant[props.position];
+    const theme = useTheme();
+
+    return (<View style={{ [property] : theme.space[sizeIndex] }}>{props.children}</View>);
+}
+
+Spacer.defaultProps = {
+    position: 'top',
+    size: 'small',
+};

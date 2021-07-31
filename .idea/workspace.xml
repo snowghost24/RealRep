@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9a4c022-8924-45a6-afcc-56359a8b0ea2" name="Default Changelist" comment="">
+    <list default="true" id="c9a4c022-8924-45a6-afcc-56359a8b0ea2" name="Default Changelist" comment="iumm">
+      <change afterPath="$PROJECT_DIR$/src/services/PreferencesContext.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/ActivityIndicatorExample.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/ActivityIndicatorExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RootNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/RootNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExampleList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Account/components/Account.styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account/components/Account.styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Account/components/Spacer/Spacer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account/components/Spacer/Spacer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Account/screens/AccountScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account/screens/AccountScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Account/screens/LoginScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account/screens/LoginScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Account/screens/RegisterScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account/screens/RegisterScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AccountNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +57,7 @@
       <option name="presentableId" value="Default" />
       <updated>1627148854073</updated>
       <workItem from="1627148855295" duration="5720000" />
-      <workItem from="1627625755034" duration="3127000" />
+      <workItem from="1627625755034" duration="16178000" />
     </task>
     <servers />
   </component>

@@ -2,11 +2,11 @@ import React, { useState, useContext } from 'react';
 import { ActivityIndicator, Colors } from 'react-native-paper';
 
 import {
-    // AccountBackground,
+    AccountBackground,
     // AccountCover,
-    // AccountContainer,
+    AccountContainer,
     AuthButton,
-    // AuthInput,
+    AuthInput,
     // Title,
     // ErrorContainer,
 } from '../components/Account.styles';
@@ -21,9 +21,20 @@ import { AuthenticationContext } from '../../services/AuthenticationContext';
     const { onLogin, isLoading, error } = useContext(AuthenticationContext);
 
     return (
+        <AccountBackground>
+        <AccountContainer>
+        <AuthInput
+            label="E-mail"
+            value={email}
+            textContentType="emailAddress"
+            keyboardType="email-address"
+            autoCapitalize="none"
+        />
+        </AccountContainer>
         <AuthButton mode="contained" onPress={() => navigation.goBack()}>
             Back
         </AuthButton>
+        </AccountBackground>
     );
 };
 

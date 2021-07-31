@@ -9,6 +9,7 @@ import { StatusBar } from 'expo-status-bar';
 import { InitialState, NavigationContainer, configureFonts } from '@react-navigation/native';
 import PaperExample from "./src/Index";
 import { theme } from "./src/infrastructure/theme";
+import { PreferencesContext } from "./src/services/PreferencesContext";
 
 import {
     Provider as PaperProvider,
@@ -62,6 +63,7 @@ const CustomDarkTheme = {
         customProperty: 1,
     },
 
+
 };
 
 const CustomDefaultTheme = {
@@ -75,43 +77,13 @@ const CustomDefaultTheme = {
         superLight: { ...DefaultTheme.fonts['light'] },
         ...theme.fonts
     },
-    space: [0, 4, 8, 16, 32, 64],
-    //  space: {
-    //     SP0 : '0px', SP1 :'4px', SP2 :'8px', SP3 :'16px', SP4 :'32px', SP5 :'64px'},
     userDefinedThemeProperty: '',
     animation: {
         ...DefaultTheme.animation,
         customProperty: 1,
     },
+    space: [0,4,8,16,32,64]
 };
-
-const PreferencesContext = React.createContext(null);
-
-
-const DrawerContent = () => {
-    return (
-        <PreferencesContext.Consumer>
-            {(preferences) => (
-                <DrawerItems
-                    toggleTheme={preferences.toggleTheme}
-                    toggleRTL={preferences.toggleRtl}
-                    isRTL={preferences.rtl}
-                    isDarkTheme={preferences.theme.dark}
-                />
-
-            )}
-        </PreferencesContext.Consumer>)
-};
-
-const Drawer = createDrawerNavigator();
-
-function HomeScreen() {
-    return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Home Screen</Text>
-        </View>
-    );
-}
 
 
 function App() {
@@ -220,12 +192,9 @@ function App() {
                         <React.Fragment>
                             <NavigationContainer
                                 initialState={initialState}
-                                onStateChange={(state) =>
-                                    AsyncStorage.setItem(PERSISTENCE_KEY, JSON.stringify(state))
-                                }
+                                onStateChange={(state) => AsyncStorage.setItem(PERSISTENCE_KEY, JSON.stringify(state))}
                             >
-
-                                <PaperExample />
+                                <PaperExample  preferences={preferences}/>
                             </NavigationContainer>
                         </React.Fragment>
                     </PreferencesContext.Provider>

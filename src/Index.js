@@ -5,6 +5,7 @@ import { Updates } from 'expo';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
+import { PreferencesContext } from "./services/PreferencesContext";
 import { theme } from "./infrastructure/theme";
 import { InitialState, NavigationContainer } from '@react-navigation/native';
 
@@ -38,44 +39,7 @@ import { AccountNavigator } from "./AccountNavigator";
 //   },
 // };
 
-const PERSISTENCE_KEY = 'NAVIGATION_STATE';
-const PREFERENCES_KEY = 'APP_PREFERENCES';
 
-const CustomDarkTheme = {
-  ...DarkTheme,
-  colors: {
-    ...DarkTheme.colors,
-    customColor: '#BADA55',
-  },
-  fonts: {
-    ...DarkTheme.fonts,
-    superLight: { ...DarkTheme.fonts['light'] },
-  },
-  userDefinedThemeProperty: '',
-  animation: {
-    ...DarkTheme.animation,
-    customProperty: 1,
-  },
-};
-
-const CustomDefaultTheme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    customColor: '#BADA55',
-  },
-  fonts: {
-    ...DefaultTheme.fonts,
-    superLight: { ...DefaultTheme.fonts['light'] },
-  },
-  userDefinedThemeProperty: '',
-  animation: {
-    ...DefaultTheme.animation,
-    customProperty: 1,
-  },
-};
-
-const PreferencesContext = React.createContext(null);
 
 
 const DrawerContent = () => {

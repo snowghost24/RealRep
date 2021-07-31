@@ -1,63 +1,38 @@
 import React,{ Fragment } from 'react';
 import { ImageBackground, View, StyleSheet } from 'react-native';
 import { withTheme, Button, TextInput,useTheme } from 'react-native-paper';
-// import styled from 'styled-components/native';
 import { colors } from '../../infrastructure/theme/colors';
 import { CustomText as Text } from '../../components/CustomText/CustomText';
 
+export const AccountBackground = ({children,...rest}) => {
+    return <ImageBackground style={ styles.accountBackground } {...rest}>{children}</ImageBackground>;
+}
 
-// export const AccountBackground = styled(ImageBackground).attrs({
-//     source: require('../../../assets/images/splash.png'),
-// })`
-//   flex: 1;
-//   align-items: center;
-//   justify-content: center;
-// `;
-//
-// export const AccountCover = styled(View)`
-//   position: absolute;
-//   width: 100%;
-//   height: 100%;
-//   background-color: rgba(255, 255, 255, 0.3);
-// `;
-//
-// export const AccountContainer = styled(View)`
-//   background-color: rgba(255, 255, 255, 0.5);
-//   // padding: ${(props) => props.theme.space[4]};
-//   // margin-top: ${(props) => props.theme.space[2]};
-// `;
+export const AccountCover = ({children,...rest}) => {
+    return <View style={ styles.accountCover } {...rest}>{children}</View>;
+}
 
+export const ErrorContainer = ({children,...rest}) => {
+    const { space } = useTheme();
+    return <View style={ [ styles.errorContainer, { marginTop: space[2],marginBottom: space[2] }] } {...rest}>{children}</View>;
+}
 
+export const AccountContainer = ({children,...rest}) => {
+    const { space } = useTheme();
+    return <View style={ [ styles.accountContainer, { marginTop: space[2] }] } {...rest}>{children}</View>;
+}
 
-// export const AuthButton = styled(Button)
-//     .attrs({
-//     color: colors.brand.primary,
-// })`
-//   padding: 24px;
-// `;
-//
-// export const MyComponent(props) {
-//     const { theme } = props;
-//     return <Text style={[styles.authButton, { padding: theme.space[2] }]}>Yo!</Text>;
-// }
+export const Title = ({children,...rest}) => {
+    return <Text {...rest}>{children}</Text>;
+}
 
-// export const AuthButton = ()=> withTheme((props)=> {
-//     const { theme } = props;
-//     return <Button style={[styles.authButton, { padding: theme.space[2] }]}>Yo!</Button>;
-// })
+export const AuthButton = ({children,...rest}) => {
+    let {space } = useTheme();
+    return <Button style={ [ styles.authButton , { padding: space[2] } ]} {...rest}>{children}</Button>;
+}
 
-// function AuthButton(props) {
-//     // const { theme } = props;
-//     return <Button style={ styles.authButton }>Yo!</Button>;
-// }
-
-export const AuthButton = () => {
-    let theme = useTheme();
-    console.log(theme.space[2])
-    return <Button style={
-        [ styles.authButton , { padding: `${theme.space[2]}` } ]
-    }>Yo!</Button>;
-
+export const AuthInput = ({children,...rest}) => {
+    return <TextInput style={ styles.authInput } {...rest}>{children}</TextInput>;
 }
 
 
@@ -65,6 +40,33 @@ const styles = StyleSheet.create({
     authButton: {
         color: colors.brand.primary,
     },
+    errorContainer:{
+        maxWidth: 300,
+        alignItems: 'center',
+        alignSelf: 'center',
+        marginTop: 8,
+        marginBottom: 8
+    },
+    authInput:{
+        width: 300
+    },
+    accountContainer:{
+        backgroundColor: 'rgba(255, 255, 255, 0.5)',
+        // padding: 16,
+        // marginTop: 8
+    },
+    accountCover:{
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'rgba(255, 255, 255, 0.3)'
+    },
+    accountBackground:{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        // backgroundColor:'red'
+    }
 })
 
 
