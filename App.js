@@ -1,273 +1,238 @@
-export { default } from './Index';
-// import { I18nManager, Platform , StyleSheet} from 'react-native';
-// import AsyncStorage from '@react-native-async-storage/async-storage';
-// import { Updates } from 'expo';
-// import { createDrawerNavigator } from '@react-navigation/drawer';
-// import { SafeAreaProvider } from 'react-native-safe-area-context';
-// import { StatusBar } from 'expo-status-bar';
+// export { default } from './src/Index';
+import * as React from 'react';
+import { I18nManager, Platform , StyleSheet, View, Text, f} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Updates } from 'expo';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { StatusBar } from 'expo-status-bar';
+import { InitialState, NavigationContainer, configureFonts } from '@react-navigation/native';
+import PaperExample from "./src/Index";
+import { theme } from "./src/infrastructure/theme";
+
+import {
+    Provider as PaperProvider,
+    DarkTheme,
+    DefaultTheme,
+} from 'react-native-paper';
+// import Navigator from '../routes/homeStack';
+// import DrawerItems from '../routes/screens/DrawerItems';
+// import Header from './Header';
+// import RootNavigator from './RootNavigator';
+// import Drawer from './src/Drawer';
+// import App from './RootNavigator';
+import { useKeepAwake } from 'expo-keep-awake';
+import { AuthenticationContextProvider } from "./src/services/AuthenticationContext";
+// import { AccountNavigator } from "./AccountNavigator";
 // import { InitialState, NavigationContainer } from '@react-navigation/native';
 
-// import {
-//   Provider as PaperProvider,
-//   DarkTheme,
-//   DefaultTheme,
-// } from 'react-native-paper';
-// import Navigator from './routes/homeStack';
-// import DrawerItems from './routes/screens/DrawerItems';
-// import Header from './src/Header';
-// import Drawer from './src/Drawer';
-// // import App from './RootNavigator';
-// import { useKeepAwake } from 'expo-keep-awake';
-// // import { InitialState, NavigationContainer } from '@react-navigation/native';
 
 
-
-// // press command D on the simulator to reload/debug and view menu
+// press command D on the simulator to reload/debug and view menu
 
 
 // const theme = {
-//   ...DefaultTheme,
-//   colors: {
-//     ...DefaultTheme.colors,
-//     // primary: 'tomato',
-//     // accent: 'yellow',
-//   },
+//     ...DefaultTheme,
+//     colors: {
+//         ...DefaultTheme.colors,
+//         // primary: 'tomato',
+//         // accent: 'yellow',
+//     },
 // };
 
-// const PERSISTENCE_KEY = 'NAVIGATION_STATE';
-// const PREFERENCES_KEY = 'APP_PREFERENCES';
+const PERSISTENCE_KEY = 'NAVIGATION_STATE';
+const PREFERENCES_KEY = 'APP_PREFERENCES';
 
-// const CustomDarkTheme = {
-//   ...DarkTheme,
-//   colors: {
-//     ...DarkTheme.colors,
-//     customColor: '#BADA55',
-//   },
-//   fonts: {
-//     ...DarkTheme.fonts,
-//     superLight: { ...DarkTheme.fonts['light'] },
-//   },
-//   userDefinedThemeProperty: '',
-//   animation: {
-//     ...DarkTheme.animation,
-//     customProperty: 1,
-//   },
-// };
+const CustomDarkTheme = {
+    ...DarkTheme,
+    colors: {
+        ...DarkTheme.colors,
+        customColor: '#BADA55',
+        ...theme.colors
+    },
+    fonts: {
+        ...DarkTheme.fonts,
+        superLight: { ...DarkTheme.fonts['light'] },
+        ...theme.fonts
 
-// const CustomDefaultTheme = {
-//   ...DefaultTheme,
-//   colors: {
-//     ...DefaultTheme.colors,
-//     customColor: '#BADA55',
-//   },
-//   fonts: {
-//     ...DefaultTheme.fonts,
-//     superLight: { ...DefaultTheme.fonts['light'] },
-//   },
-//   userDefinedThemeProperty: '',
-//   animation: {
-//     ...DefaultTheme.animation,
-//     customProperty: 1,
-//   },
-// };
+    },
+    userDefinedThemeProperty: '',
+    animation: {
+        ...DarkTheme.animation,
+        customProperty: 1,
+    },
 
-// const PreferencesContext = React.createContext(null);
+};
 
-// const DrawerContent = () => {
-//   return (
-  
-//         <DrawerItems
-//           toggleTheme={preferences.toggleTheme}
-//           toggleRTL={preferences.toggleRtl}
-//           isRTL={preferences.rtl}
-//           isDarkTheme={preferences.theme.dark}
-//         />
+const CustomDefaultTheme = {
+    ...DefaultTheme,
+    colors: {
+        ...DefaultTheme.colors,
+        customColor: '#BADA55',
+    },
+    fonts: {
+        ...DefaultTheme.fonts,
+        superLight: { ...DefaultTheme.fonts['light'] },
+        ...theme.fonts
+    },
+    space: [0, 4, 8, 16, 32, 64],
+    //  space: {
+    //     SP0 : '0px', SP1 :'4px', SP2 :'8px', SP3 :'16px', SP4 :'32px', SP5 :'64px'},
+    userDefinedThemeProperty: '',
+    animation: {
+        ...DefaultTheme.animation,
+        customProperty: 1,
+    },
+};
 
-//   );
-// };
-
-// const DrawerNav = createDrawerNavigator();
-
-// function HomeScreen() {
-//   return (
-//     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-//       <Text>Home Screen</Text>
-//     </View>
-//   );
-// }
+const PreferencesContext = React.createContext(null);
 
 
-// function PaperExample() {
+const DrawerContent = () => {
+    return (
+        <PreferencesContext.Consumer>
+            {(preferences) => (
+                <DrawerItems
+                    toggleTheme={preferences.toggleTheme}
+                    toggleRTL={preferences.toggleRtl}
+                    isRTL={preferences.rtl}
+                    isDarkTheme={preferences.theme.dark}
+                />
 
-//   useKeepAwake();
+            )}
+        </PreferencesContext.Consumer>)
+};
 
-//   const [isReady, setIsReady] = React.useState(false);
-//   const [initialState, setInitialState] = React.useState();
+const Drawer = createDrawerNavigator();
 
-//   const [theme, setTheme] = React.useState(
-//     CustomDefaultTheme
-//   );
-
-//   const [rtl, setRtl] = React.useState(I18nManager.isRTL);
-
-//   React.useEffect(() => {
-//     const restoreState = async () => {
-//       try {
-//         // const savedStateString = await AsyncStorage.getItem(PERSISTENCE_KEY);
-//         const savedStateString = '';
-//         const state = JSON.parse(savedStateString || '');
-
-//         setInitialState(state);
-//       } catch (e) {
-//         // ignore error
-//       } finally {
-//         setIsReady(true);
-//       }
-//     };
-
-//     if (!isReady) {
-//       restoreState();
-//     }
-//   }, [isReady]);
-
-//   React.useEffect(() => {
-//     const restorePrefs = async () => {
-//       try {
-//         // const prefString = await AsyncStorage.getItem(PREFERENCES_KEY);
-//         const prefString = '';
-//         const preferences = JSON.parse(prefString || '');
-
-//         if (preferences) {
-//           // eslint-disable-next-line react/no-did-mount-set-state
-//           setTheme(
-//             preferences.theme === 'dark' ? CustomDarkTheme : CustomDefaultTheme
-//           );
-
-//           if (typeof preferences.rtl === 'boolean') {
-//             setRtl(preferences.rtl);
-//           }
-//         }
-//       } catch (e) {
-//         // ignore error
-//       }
-//     };
-
-//     restorePrefs();
-//   }, []);
+function HomeScreen() {
+    return (
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Text>Home Screen</Text>
+        </View>
+    );
+}
 
 
-//   React.useEffect(() => {
-//     const savePrefs = async () => {
-//       try {
-//         await AsyncStorage.setItem(
-//           PREFERENCES_KEY,
-//           JSON.stringify({
-//             theme: theme === DarkTheme ? 'dark' : 'light',
-//             rtl,
-//           })
-//         );
-//       } catch (e) {
-//         // ignore error
-//       }
+function App() {
+    useKeepAwake();
+    const [isReady, setIsReady] = React.useState(false);
+    const [initialState, setInitialState] = React.useState();
 
-//       if (I18nManager.isRTL !== rtl) {
-//         I18nManager.forceRTL(rtl);
-//         Updates.reloadFromCache();
-//       }
-//     };
+    const [theme, setTheme] = React.useState(
+        CustomDefaultTheme
+    );
 
-//     savePrefs();
-//   }, [rtl, theme]);
+    const [rtl, setRtl] = React.useState(I18nManager.isRTL);
 
-//   const preferences = React.useMemo(
-//     () => ({
-//       toggleTheme: () =>
-//         setTheme((theme) =>
-//           theme === CustomDefaultTheme ? CustomDarkTheme : CustomDefaultTheme
-//         ),
-//       toggleRtl: () => setRtl((rtl) => !rtl),
-//       rtl,
-//       theme,
-//     }),
-//     [rtl, theme]
-//   );
+    React.useEffect(() => {
+        const restoreState = async () => {
+            try {
+                const savedStateString = await AsyncStorage.getItem(PERSISTENCE_KEY);
+                // const savedStateString = '';
+                const state = JSON.parse(savedStateString || '');
 
-//   if (!isReady) {
-//     return null;
-//   }
+                setInitialState(state);
+            } catch (e) {
+                // ignore error
+            } finally {
+                setIsReady(true);
+            }
+        };
+
+        if (!isReady) {
+            restoreState();
+        }
+    }, [isReady]);
+
+    React.useEffect(() => {
+        const restorePrefs = async () => {
+            try {
+                // const prefString = await AsyncStorage.getItem(PREFERENCES_KEY);
+                const prefString = '';
+                const preferences = JSON.parse(prefString || '');
+
+                if (preferences) {
+                    // eslint-disable-next-line react/no-did-mount-set-state
+                    setTheme(
+                        preferences.theme === 'dark' ? CustomDarkTheme : CustomDefaultTheme
+                    );
+
+                    if (typeof preferences.rtl === 'boolean') {
+                        setRtl(preferences.rtl);
+                    }
+                }
+            } catch (e) {
+                // ignore error
+            }
+        };
+
+        restorePrefs();
+    }, []);
 
 
+    React.useEffect(() => {
+        const savePrefs = async () => {
+            try {
+                await AsyncStorage.setItem(
+                    PREFERENCES_KEY,
+                    JSON.stringify({
+                        theme: theme === DarkTheme ? 'dark' : 'light',
+                        rtl,
+                    })
+                );
+            } catch (e) {
+                // ignore error
+            }
 
+            if (I18nManager.isRTL !== rtl) {
+                I18nManager.forceRTL(rtl);
+                Updates.reloadFromCache();
+            }
+        };
 
-//   console.log("what do we have here");
-// function handlePress (){
-//   console.log("i have been pressed")
-// }
-//   return (
-//     <PaperProvider theme={theme}>
-//     <SafeAreaProvider>
-//       <PreferencesContext.Provider value={preferences}>
-//         <React.Fragment>
-//           <NavigationContainer
-//             initialState={initialState}
-//             onStateChange={(state) =>
-//               AsyncStorage.setItem(PERSISTENCE_KEY, JSON.stringify(state))
-//             }
-//           >
-//             {Platform.OS === 'web' ? (
-//               <HomeScreen />
-//             ) : (
-//               <Drawer.Navigator drawerContent={() => <DrawerContent />}>
-//                 <Drawer.Screen name="Home" component={HomeScreen} />
-//               </Drawer.Navigator>
-//             )}
-//             <StatusBar style="light" />
-//           </NavigationContainer>
-//         </React.Fragment>
-//       </PreferencesContext.Provider>
-//     </SafeAreaProvider>
-//   </PaperProvider>
-//     // <PaperProvider theme={theme}>
-//     //    <SafeAreaProvider>
-//     //    <Navigator />
-//     //    </SafeAreaProvider>
-     
-//     // {/* <SafeAreaView style={styles.container}> */}
-//     //   {/* <Drawer />
-//     //   <Header/>
-//     //   <Text onPress={handlePress}>Babe check me outt</Text>
-//     //   <TouchableOpacity>
-//     //   <Image source={{ 
-//     //     width:200,
-//     //     height:300,
-//     //     uri:'https://picsum.photos/200/300'
-//     //   }}/>
-//     //   </TouchableOpacity>
-//     //   <Button 
-//     //   title='click me'
-//     //   onPress={
-//     //     ()=> Alert.alert(
-//     //       'What is do', 
-//     //       'what does it do', 
-//     //       [ 
-//     //         { text:'yes' },
-//     //         { text:'no' }
-//     //       ]
-//     //     )
-//     //   } />
-//     //   <StatusBar style="auto" /> */}
-//     // {/* </SafeAreaView> */}
-//     // </PaperProvider>
-//   );
-// }
+        savePrefs();
+    }, [rtl, theme]);
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: 'pink',
-//     // alignItems: 'center',
-//     // justifyContent: 'center',
-//   },
-// });
+    const preferences = React.useMemo(
+        () => ({
+            toggleTheme: () =>
+                setTheme((theme) =>
+                    theme === CustomDefaultTheme ? CustomDarkTheme : CustomDefaultTheme
+                ),
+            toggleRtl: () => setRtl((rtl) => !rtl),
+            rtl,
+            theme,
+        }),
+        [rtl, theme]
+    );
 
-// export default PaperExample;
+    if (!isReady) {
+        return null;
+    }
+
+    // const isAuthenticated = false;
+    return (
+        <PaperProvider theme={theme}>
+            <SafeAreaProvider>
+                <AuthenticationContextProvider>
+                    <PreferencesContext.Provider value={preferences}>
+                        <React.Fragment>
+                            <NavigationContainer
+                                initialState={initialState}
+                                onStateChange={(state) =>
+                                    AsyncStorage.setItem(PERSISTENCE_KEY, JSON.stringify(state))
+                                }
+                            >
+
+                                <PaperExample />
+                            </NavigationContainer>
+                        </React.Fragment>
+                    </PreferencesContext.Provider>
+                </AuthenticationContextProvider>
+            </SafeAreaProvider>
+        </PaperProvider>
+    );
+}
+
+export default App;

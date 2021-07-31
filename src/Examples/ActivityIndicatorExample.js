@@ -3,7 +3,8 @@ import { View, StyleSheet } from 'react-native';
 import { ActivityIndicator, Colors, FAB } from 'react-native-paper';
 import ScreenWrapper from '../ScreenWrapper';
 
-const ActivityIndicatorExample = () => {
+const
+    ActivityIndicatorExample = () => {
   const [animating, setAnimating] = React.useState(true);
 
   return (

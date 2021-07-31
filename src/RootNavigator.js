@@ -4,8 +4,9 @@ import { DrawerNavigationProp } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 import About from '../routes/screens/About';
 import { View, Text} from 'react-native';
-import ExampleList from "../ExampleList";
-import { examples } from "../ExampleList";
+import Login from './Login';
+import ExampleList from "./ExampleList";
+import { examples } from "./ExampleList";
 // import ExampleList, { examples } from './Examples';
 
 const Stack = createStackNavigator();
@@ -39,6 +40,12 @@ export default function Root() {
         ),
       }}
     >
+
+        {/*<Stack.Screen*/}
+        {/*    name="Home"*/}
+        {/*    component={Login}*/}
+        {/*    options={{ title: 'Real Rep' }}*/}
+        {/*/>*/}
       <Stack.Screen
         name="Home"
         component={ExampleList}

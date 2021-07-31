@@ -2,51 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9a4c022-8924-45a6-afcc-56359a8b0ea2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.eslintrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ExampleList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/rr_logo1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ScreenWrapper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/ActivityIndicatorExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/ActivityIndicatorExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/AppbarExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/AppbarExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/AvatarExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/AvatarExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/BadgeExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/BadgeExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/BannerExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/BannerExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/BottomNavigationExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/BottomNavigationExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/ButtonExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/ButtonExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/CardExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/CardExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/CheckboxExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/CheckboxExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/CheckboxItemExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/CheckboxItemExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/ChipExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/ChipExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/DataTableExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/DataTableExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/DialogExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/DialogExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/Dialogs/DialogWithCustomColors.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/Dialogs/DialogWithCustomColors.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/Dialogs/DialogWithLoadingIndicator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/Dialogs/DialogWithLoadingIndicator.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/Dialogs/DialogWithLongText.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/Dialogs/DialogWithLongText.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/Dialogs/DialogWithRadioBtns.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/Dialogs/DialogWithRadioBtns.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/Dialogs/UndismissableDialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/Dialogs/UndismissableDialog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/Dialogs/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/Dialogs/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/DividerExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/DividerExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/FABExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/FABExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/IconButtonExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/IconButtonExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/ListAccordionExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/ListAccordionExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/ListAccordionGroupExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/ListAccordionGroupExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/ListSectionExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/ListSectionExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/MenuExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/MenuExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/ProgressBarExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/ProgressBarExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/RadioButtonExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/RadioButtonExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/RadioButtonGroupExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/RadioButtonGroupExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/RadioButtonItemExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/RadioButtonItemExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/SearchbarExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/SearchbarExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/SnackbarExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/SnackbarExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/SurfaceExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/SurfaceExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/SwitchExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/SwitchExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/TextExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/TextExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/TextInputExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/TextInputExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/ThemeExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/ThemeExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/ToggleButtonExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/ToggleButtonExample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/TouchableRippleExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/TouchableRippleExample.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Examples/ActivityIndicatorExample.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/ActivityIndicatorExample.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RootNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/RootNavigator.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,6 +30,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="ssh.settings" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
@@ -91,6 +52,7 @@
       <option name="presentableId" value="Default" />
       <updated>1627148854073</updated>
       <workItem from="1627148855295" duration="5720000" />
+      <workItem from="1627625755034" duration="3127000" />
     </task>
     <servers />
   </component>
@@ -107,5 +69,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
