@@ -3,9 +3,19 @@ import { ImageBackground, View, StyleSheet } from 'react-native';
 import { withTheme, Button, TextInput,useTheme } from 'react-native-paper';
 import { colors } from '../../infrastructure/theme/colors';
 import { CustomText as Text } from '../../components/CustomText/CustomText';
+import ScreenWrapper from "../../ScreenWrapper";
 
 export const AccountBackground = ({children,...rest}) => {
     return <ImageBackground style={ styles.accountBackground } {...rest}>{children}</ImageBackground>;
+}
+
+export const ScreenWrapperStyled = ({children,...rest}) => {
+    const { space } = useTheme();
+    return <ScreenWrapper
+        contentContainerStyle={[ styles.accountBackground, { marginLeft: space[3],marginRight: space[3] }]}
+        keyboardShouldPersistTaps={'always'}
+        removeClippedSubviews={false}
+        {...rest}>{children}</ScreenWrapper>;
 }
 
 export const AccountCover = ({children,...rest}) => {
@@ -28,11 +38,17 @@ export const Title = ({children,...rest}) => {
 
 export const AuthButton = ({children,...rest}) => {
     let {space } = useTheme();
-    return <Button style={ [ styles.authButton , { padding: space[2] } ]} {...rest}>{children}</Button>;
+    return <Button
+        labelStyle={{
+            lineHeight:35
+        }}
+        style={ [ styles.authButton ]} {...rest}>{children}</Button>;
 }
 
 export const AuthInput = ({children,...rest}) => {
-    return <TextInput style={ styles.authInput } {...rest}>{children}</TextInput>;
+    return <TextInput
+        // mode="outlined"
+        style={ styles.authInput } {...rest}>{children}</TextInput>;
 }
 
 
@@ -48,7 +64,7 @@ const styles = StyleSheet.create({
         marginBottom: 8
     },
     authInput:{
-        width: 300
+        // width: 300
     },
     accountContainer:{
         backgroundColor: 'rgba(255, 255, 255, 0.5)',
@@ -63,8 +79,9 @@ const styles = StyleSheet.create({
     },
     accountBackground:{
         flex: 1,
-        alignItems: 'center',
+        // alignItems: 'center',
         justifyContent: 'center',
+
         // backgroundColor:'red'
     }
 })

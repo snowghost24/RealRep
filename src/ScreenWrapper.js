@@ -10,25 +10,14 @@ import {
 import { useTheme } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-export default function ScreenWrapper(
-    {
-
-        children,
-
-        withScrollView = true,
-
-                                          style,
-                                          contentContainerStyle,
-                                          ...rest
-                                      }: Props) {
+export default function ScreenWrapper({ children, withScrollView = true, style, contentContainerStyle, ...rest }: Props) {
     const {
         colors: { background },
     } = useTheme();
 
     const insets = useSafeAreaInsets();
 
-    const containerStyle = [
-        styles.container,
+    const containerStyle = [ styles.container,
         {
             backgroundColor: background,
             paddingBottom: insets.bottom,

@@ -4,6 +4,7 @@ import { ActivityIndicator, Colors } from 'react-native-paper';
 import {
     AccountBackground,
     AccountCover,
+    ScreenWrapperStyled,
     AccountContainer,
     AuthButton,
     AuthInput,
@@ -22,7 +23,7 @@ export const RegisterScreen = ({ navigation }) => {
     const { onRegister, isLoading, error } = useContext(AuthenticationContext);
 
     return (
-        <AccountBackground>
+        <ScreenWrapperStyled>
             <AccountCover />
             {/*<Title variant="caption">YumMeals</Title>*/}
             <AccountContainer>
@@ -73,11 +74,6 @@ export const RegisterScreen = ({ navigation }) => {
                     )}
                 </Spacer>
             </AccountContainer>
-            <Spacer size="large">
-                <AuthButton mode="contained" onPress={() => navigation.goBack()}>
-                    Back
-                </AuthButton>
-            </Spacer>
-        </AccountBackground>
+        </ScreenWrapperStyled>
     );
 };

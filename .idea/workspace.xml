@@ -2,17 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9a4c022-8924-45a6-afcc-56359a8b0ea2" name="Default Changelist" comment="iumm">
-      <change afterPath="$PROJECT_DIR$/src/services/PreferencesContext.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/axiosInstance.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/constants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/env.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ExampleList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Account/components/Account.styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account/components/Account.styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Account/components/Spacer/Spacer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account/components/Spacer/Spacer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Account/screens/AccountScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account/screens/AccountScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Account/screens/LoginScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account/screens/LoginScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Account/screens/RegisterScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account/screens/RegisterScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AccountNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountNavigator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ScreenWrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScreenWrapper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/AuthenticationContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AuthenticationContext.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +52,16 @@
       <recent name="$PROJECT_DIR$/assets/images" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="LoginScreen.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/Account/screens/LoginScreen.js" working-dir="$PROJECT_DIR$/src/Account/screens">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.LoginScreen.js" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -57,7 +71,7 @@
       <option name="presentableId" value="Default" />
       <updated>1627148854073</updated>
       <workItem from="1627148855295" duration="5720000" />
-      <workItem from="1627625755034" duration="16178000" />
+      <workItem from="1627625755034" duration="40999000" />
     </task>
     <servers />
   </component>

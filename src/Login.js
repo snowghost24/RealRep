@@ -9,33 +9,9 @@ import ScreenWrapper from './ScreenWrapper';
 const MAX_LENGTH = 20;
 
 const initialState: State = {
-    text: '',
-    customIconText: '',
     name: '',
-    outlinedText: '',
-    largeText: '',
     flatTextPassword: '',
-    outlinedLargeText: '',
-    outlinedTextPassword: '',
-    nameNoPadding: '',
-    flatDenseText: '',
-    flatDense: '',
-    outlinedDenseText: '',
-    outlinedDense: '',
-    flatMultiline: '',
-    flatTextArea: '',
-    outlinedMultiline: '',
-    outlinedTextArea: '',
-    maxLengthName: '',
     flatTextSecureEntry: true,
-    outlineTextSecureEntry: true,
-    iconsColor: {
-        flatLeftIcon: undefined,
-        flatRightIcon: undefined,
-        outlineLeftIcon: undefined,
-        outlineRightIcon: undefined,
-        customIcon: undefined,
-    },
 };
 
 
@@ -57,41 +33,25 @@ const TextInputAvoidingView = ({ children }) => {
 const Login = () => {
     const [state, dispatch] = React.useReducer(inputReducer, initialState);
     const {
-        text,
-        customIconText,
         name,
-        outlinedText,
-        largeText,
         flatTextPassword,
-        outlinedLargeText,
-        outlinedTextPassword,
-        nameNoPadding,
-        flatDenseText,
-        flatDense,
-        outlinedDenseText,
-        outlinedDense,
-        flatMultiline,
-        flatTextArea,
-        outlinedMultiline,
-        outlinedTextArea,
-        maxLengthName,
         flatTextSecureEntry,
-        outlineTextSecureEntry,
-        iconsColor: {
-            flatLeftIcon,
-            flatRightIcon,
-            outlineLeftIcon,
-            outlineRightIcon,
-            customIcon,
-        },
+
+        // iconsColor: {
+        //     flatLeftIcon,
+        //     flatRightIcon,
+        //     outlineLeftIcon,
+        //     outlineRightIcon,
+        //     customIcon,
+        // },
     } = state;
 
     const _isUsernameValid = (name: string) => /^[a-zA-Z]*$/.test(name);
     const _isPasswordValid = (flatTextPassword: string) => /^[a-zA-Z]*$/.test(flatTextPassword);
 
-    const {
-        colors: { accent, primary },
-    } = useTheme();
+    // const {
+    //     colors: { accent, primary },
+    // } = useTheme();
 
     const inputActionHandler = (type, payload) =>
         dispatch({
@@ -99,19 +59,19 @@ const Login = () => {
             payload: payload,
         });
 
-    const changeIconColor = (name ) => {
-        const color = state.iconsColor[name];
-
-        const colors = {
-            ...state.iconsColor,
-            [name]: !color ? accent : undefined,
-        };
-
-        dispatch({
-            type: 'iconsColor',
-            payload: colors,
-        });
-    };
+    // const changeIconColor = (name ) => {
+    //     const color = state.iconsColor[name];
+    //
+    //     const colors = {
+    //         ...state.iconsColor,
+    //         [name]: !color ? accent : undefined,
+    //     };
+    //
+    //     dispatch({
+    //         type: 'iconsColor',
+    //         payload: colors,
+    //     });
+    // };
 
     return (
         <TextInputAvoidingView>

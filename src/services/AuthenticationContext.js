@@ -1,4 +1,9 @@
 import React, { useState, createContext } from 'react';
+import AxiosInstance from '../utils/axiosInstance';
+import {Platform} from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { BEARER_TOKEN } from "../utils/constants";
+import {DarkTheme} from "react-native-paper";
 // import * as firebase from 'firebase';
 
 // import { loginRequest } from './authentication.service';
@@ -10,24 +15,24 @@ export const AuthenticationContextProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [error, setError] = useState(null);
 
-    // firebase.auth().onAuthStateChanged((usr) => {
-    //     if (usr) {
-    //         setUser(usr);
-    //         setIsLoading(false);
-    //     }
-    // });
-
     const onLogin = (email, password) => {
-        // setIsLoading(true);
-        // loginRequest(email, password)
-        //     .then((u) => {
-        //         setUser(u);
-        //         setIsLoading(false);
-        //     })
-        //     .catch((err) => {
-        //         setIsLoading(false);
-        //         setError(err.toString());
-        //     });
+        setIsLoading(true);
+        AxiosInstance.post('/login',{
+            email,
+            password,
+            device_name: "something"
+        }).then((response) => {
+             return AsyncStorage.setItem(BEARER_TOKEN, response.data.token).then(()=>{
+                 return response
+             });
+            }).then((response) => {
+            setUser(response.data.user);
+            setIsLoading(false);
+        }).catch((err) => {
+                console.log("whats the error",err);
+                setIsLoading(false);
+                // setError(err.toString());
+            });
     };
 
     const onRegister = (email, password, repeatedPassword) => {
@@ -54,11 +59,12 @@ export const AuthenticationContextProvider = ({ children }) => {
         // setUser(null);
         // firebase.auth().signOut();
     };
-
+console.log("the user", user)
     return (
         <AuthenticationContext.Provider
             value={{
-                isAuthenticated: true,
+                isAuthenticated: !!user,
+                // isAuthenticated: true,
                 isLoading,
                 user,
                 error,
