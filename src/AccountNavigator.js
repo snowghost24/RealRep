@@ -4,6 +4,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { AccountScreen } from './Account/screens/AccountScreen';
 import  LoginScreen  from './Account/screens/LoginScreen';
  import { RegisterScreen } from './Account/screens/RegisterScreen';
+ import { ForgotPasswordScreen } from "./Account/screens/ForgotPasswordScreen";
+
 import {Appbar, useTheme} from "react-native-paper";
 
 const Stack = createStackNavigator();
@@ -30,5 +32,6 @@ export const AccountNavigator = () => {
         />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
+        <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
     </Stack.Navigator>
 )};

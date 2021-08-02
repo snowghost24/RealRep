@@ -5,6 +5,7 @@ import { TextInput, HelperText, useTheme } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { inputReducer, State } from './utils/index';
 import ScreenWrapper from './ScreenWrapper';
+import {ScreenWrapperStyled} from "./Account/components/Account.styles";
 
 const MAX_LENGTH = 20;
 
@@ -75,11 +76,7 @@ const Login = () => {
 
     return (
         <TextInputAvoidingView>
-            <ScreenWrapper
-                contentContainerStyle={styles.container}
-                keyboardShouldPersistTaps={'always'}
-                removeClippedSubviews={false}
-            >
+            <ScreenWrapperStyled>
                     <View style={styles.inputContainerStyle}>
                     <TextInput
                         label="Username"
@@ -119,7 +116,7 @@ const Login = () => {
                         Error: Only letters are allowed
                     </HelperText>
                 </View>
-         </ScreenWrapper>
+            </ScreenWrapperStyled>
         </TextInputAvoidingView>
     );
 };

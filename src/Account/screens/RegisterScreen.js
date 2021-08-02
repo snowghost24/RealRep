@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
-import { ActivityIndicator, Colors } from 'react-native-paper';
-
+import { ActivityIndicator, Colors, Button } from 'react-native-paper';
+import {KeyboardAvoidingView, Platform, View} from "react-native";
 import {
     AccountBackground,
     AccountCover,
@@ -8,7 +8,10 @@ import {
     AccountContainer,
     AuthButton,
     AuthInput,
+    GoogleAuthButton,
+    FacebookAuthButton,
     Title,
+    TextInputAvoidingView,
     ErrorContainer,
 } from '../components/Account.styles';
 import { Spacer } from '../components/Spacer/Spacer';
@@ -25,8 +28,21 @@ export const RegisterScreen = ({ navigation }) => {
     return (
         <ScreenWrapperStyled>
             <AccountCover />
-            {/*<Title variant="caption">YumMeals</Title>*/}
             <AccountContainer>
+            {/*<Title variant="caption">YumMeals</Title>*/}
+            <GoogleAuthButton mode={'outlined'}>Sign in with Google</GoogleAuthButton>
+            <Spacer size="large">
+            <FacebookAuthButton mode={'outlined'}>Sign in with Facebook</FacebookAuthButton>
+            </Spacer>
+            <Spacer size="large">
+            <View style={{display:'flex', flexDirection:'row', justifyContent:'center'}}>
+                <Title variant="caption">OR</Title>
+            </View>
+            </Spacer>
+
+
+
+                <Spacer size="large">
                 <AuthInput
                     label="E-mail"
                     value={email}
@@ -35,6 +51,7 @@ export const RegisterScreen = ({ navigation }) => {
                     autoCapitalize="none"
                     onChangeText={(userEmail) => setEmail(userEmail)}
                 />
+                </Spacer>
                 <Spacer size="large">
                     <AuthInput
                         label="Password"

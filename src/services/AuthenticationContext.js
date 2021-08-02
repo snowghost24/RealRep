@@ -63,8 +63,8 @@ console.log("the user", user)
     return (
         <AuthenticationContext.Provider
             value={{
+                // isAuthenticated: !!user,
                 isAuthenticated: !!user,
-                // isAuthenticated: true,
                 isLoading,
                 user,
                 error,

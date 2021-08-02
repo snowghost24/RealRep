@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import {ActivityIndicator, Colors, HelperText, TextInput} from 'react-native-paper';
+import {ActivityIndicator, Colors, HelperText, TextInput, Title} from 'react-native-paper';
 
 import {
     AccountBackground,
@@ -8,6 +8,7 @@ import {
     AuthButton,
     ScreenWrapperStyled,
     AuthInput,
+    LinkButton,
     // Title,
     // ErrorContainer,
 } from '../components/Account.styles';
@@ -19,6 +20,7 @@ import {inputReducer, State} from "../../utils";
 import {KeyboardAvoidingView, Platform, StyleSheet, View,} from "react-native";
 import ScreenWrapper from "../../ScreenWrapper";
 import Login from "../../Login";
+import {APP_NAME} from "../../utils/constants";
 
 const MAX_LENGTH = 20;
 
@@ -26,20 +28,6 @@ const initialState: State = {
     name: '',
     flatTextPassword: '',
     flatTextSecureEntry: true,
-};
-
-const TextInputAvoidingView = ({ children }) => {
-    return Platform.OS === 'ios' ? (
-        <KeyboardAvoidingView
-            style={styles.wrapper}
-            behavior="padding"
-            keyboardVerticalOffset={80}
-        >
-            {children}
-        </KeyboardAvoidingView>
-    ) : (
-        <>{children}</>
-    );
 };
 
 
@@ -63,9 +51,10 @@ const TextInputAvoidingView = ({ children }) => {
          });
 
     return (
-            <TextInputAvoidingView>
                 <ScreenWrapperStyled>
                     {/*<AccountContainer>*/}
+                    <Title style={styles.text}>Log in to {APP_NAME}</Title>
+                    <Spacer size={'large'}>
                         <AuthInput
                             // mode="outlined"
                             label="Email"
@@ -78,7 +67,7 @@ const TextInputAvoidingView = ({ children }) => {
                         <HelperText type="error" visible={!isEmailValid(email)} padding='none' style={styles.helper}>
                             Error: Only letters are allowed
                         </HelperText>
-
+                    </Spacer>
                     <View>
                         <AuthInput
                             // mode="outlined"
@@ -108,22 +97,29 @@ const TextInputAvoidingView = ({ children }) => {
                             Error: Only letters are allowed
                         </HelperText>
                     </View>
+                    <Spacer size={'large'}>
+                    <View style={{ flexDirection: 'row', justifyContent:'space-between'}}>
+                    <LinkButton onPress={()=>navigation.navigate('ForgotPassword')}>Forgot Password</LinkButton>
+                    <LinkButton>Private Policy</LinkButton>
+                    </View>
+                    </Spacer>
+                    <Spacer size={'xl'}>
                     <View>
                         {!isLoading ? (
                             <AuthButton
-                                icon="email"
+                                icon="lock-open-outline"
                                 mode="contained"
                                 onPress={() => onLogin(email, password)}
                             >
-                               Login
+                               Log in
                             </AuthButton>
                         ) : (
                             <ActivityIndicator animating={true} color={Colors.blue300} />
                         )}
                     </View>
+                        </Spacer>
                         {/*</AccountContainer>*/}
                 </ScreenWrapperStyled>
-            </TextInputAvoidingView>
 
     );
 };

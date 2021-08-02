@@ -6,6 +6,7 @@ import {
 import { StyleSheet, View } from 'react-native';
 import { Title } from 'react-native-paper';
 import { Spacer } from '../components/Spacer/Spacer';
+import {APP_NAME} from "../../utils/constants";
 
 export const AccountScreen = ({ navigation }) => {
     return (
@@ -14,7 +15,7 @@ export const AccountScreen = ({ navigation }) => {
                 flexDirection: "column"
             }]}>
                 <View style={styles.level_one}>
-                    <Title>Real Rep</Title>
+                    <Title>{APP_NAME}</Title>
                 </View>
                 <View style={styles.level_two}>
                     <AuthButton
@@ -22,7 +23,7 @@ export const AccountScreen = ({ navigation }) => {
                         mode="contained"
                         onPress={() => navigation.navigate('Login')}
                     >
-                        Login
+                        Log in
                     </AuthButton>
                     <Spacer size="large">
                         <AuthButton

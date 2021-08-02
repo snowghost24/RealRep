@@ -2,21 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9a4c022-8924-45a6-afcc-56359a8b0ea2" name="Default Changelist" comment="iumm">
-      <change afterPath="$PROJECT_DIR$/src/utils/axiosInstance.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/constants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/env.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/facebook.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/fb2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Account/screens/ForgotPasswordScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Account/components/Account.styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account/components/Account.styles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Account/screens/AccountScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account/screens/AccountScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Account/screens/LoginScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account/screens/LoginScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Account/screens/RegisterScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account/screens/RegisterScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AccountNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountNavigator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RootNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/RootNavigator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ScreenWrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScreenWrapper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/AuthenticationContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AuthenticationContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/constants.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,13 +38,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/images" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="ssh.settings" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
@@ -71,7 +73,7 @@
       <option name="presentableId" value="Default" />
       <updated>1627148854073</updated>
       <workItem from="1627148855295" duration="5720000" />
-      <workItem from="1627625755034" duration="40999000" />
+      <workItem from="1627625755034" duration="58328000" />
     </task>
     <servers />
   </component>

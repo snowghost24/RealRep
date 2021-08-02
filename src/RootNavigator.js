@@ -7,6 +7,7 @@ import { View, Text} from 'react-native';
 import Login from './Login';
 import ExampleList from "./ExampleList";
 import { examples } from "./ExampleList";
+import { APP_NAME } from "./utils/constants";
 // import ExampleList, { examples } from './Examples';
 
 const Stack = createStackNavigator();
@@ -49,7 +50,7 @@ export default function Root() {
       <Stack.Screen
         name="Home"
         component={ExampleList}
-        options={{ title: 'Real Rep' }}
+        options={{ title: APP_NAME }}
       />
 
        {Object.keys(examples).map((id) => (
