@@ -12,10 +12,9 @@ const Stack = createStackNavigator();
 
 export const AccountNavigator = () => {
     const { colors } = useTheme();
-    console.log("colors",colors);
     return (
     <Stack.Navigator
-        // headerMode="screen"
+        headerMode="screen"
         screenOptions={{
             header: ({ navigation, scene, previous }) => (
                 <Appbar.Header>
@@ -24,7 +23,8 @@ export const AccountNavigator = () => {
                     )}
                 </Appbar.Header>
             ),
-        }}>
+        }}
+    >
         <Stack.Screen
             name="Main"
             component={AccountScreen}

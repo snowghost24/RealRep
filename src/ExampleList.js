@@ -77,7 +77,7 @@ export const examples = {
 const data = Object.keys(examples).map(
     (id): Item => ({ id, data: examples[id] })
 );
-console.log(data);
+
 export default function ExampleList({ navigation }) {
     const renderItem = ({ item }: { item: Item }) => (
         <List.Item

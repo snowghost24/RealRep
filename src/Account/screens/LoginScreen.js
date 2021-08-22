@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
-import {ActivityIndicator, Colors, HelperText, TextInput, Title} from 'react-native-paper';
-
+import { ActivityIndicator, Colors, HelperText, TextInput, Title } from 'react-native-paper';
+import { validationRules } from "../../utils/helperFunctions";
 import {
     AccountBackground,
     // AccountCover,
@@ -22,27 +22,34 @@ import ScreenWrapper from "../../ScreenWrapper";
 import Login from "../../Login";
 import {APP_NAME} from "../../utils/constants";
 
+
 const MAX_LENGTH = 20;
 
 const initialState: State = {
-    name: '',
-    flatTextPassword: '',
+    email:'',
+    emailError:undefined,
+    password:'',
+    passwordError: undefined,
+    // flatTextPassword: '',
     flatTextSecureEntry: true,
 };
 
 
  const LoginScreen = ({ navigation }) => {
     const { onLogin, isLoading, error } = useContext(AuthenticationContext);
-    const [state, dispatch] = React.useReducer(inputReducer, initialState);
+    const [ state, dispatch ] = React.useReducer(inputReducer, initialState);
 
      const {
          email,
+         emailError,
          password,
+         passwordError,
          flatTextSecureEntry,
      } = state;
 
-     const isEmailValid = (email: string) => /^[a-zA-Z]*$/.test(email);
      const _isPasswordValid = (password: string) => /^[a-zA-Z]*$/.test(password);
+
+
 
      const inputActionHandler = (type, payload) =>
          dispatch({
@@ -56,33 +63,37 @@ const initialState: State = {
                     <Title style={styles.text}>Log in to {APP_NAME}</Title>
                     <Spacer size={'large'}>
                         <AuthInput
-                            // mode="outlined"
+                            mode="outlined"
                             label="Email"
                             placeholder="Enter email"
                             value={email}
-                            // error={!isEmailValid(email)}
+                            error={emailError}
                             onChangeText={(email) => inputActionHandler('email', email)}
-                            // style={styles.authInput}
+                            onFocus={() => inputActionHandler('emailError', '')}
+                            onBlur={() => inputActionHandler('emailError', validationRules.isEmailValid(email))}
                         />
-                        <HelperText type="error" visible={!isEmailValid(email)} padding='none' style={styles.helper}>
-                            Error: Only letters are allowed
-                        </HelperText>
+                        {/*<HelperText*/}
+                        {/*    type="error"*/}
+                        {/*    visible={validationRules.isEmailValid(email)}*/}
+                        {/*    // visible={false}*/}
+                        {/*    padding='none'*/}
+                        {/*    style={styles.helper}>*/}
+                        {/*    Error: Only letters are allowed*/}
+                        {/*</HelperText>*/}
                     </Spacer>
                     <View>
                         <AuthInput
-                            // mode="outlined"
+                            mode="outlined"
                             // style={styles.authInput}
                             label="Password"
                             placeholder="Enter Password"
                             value={password}
-                            // error={!_isPasswordValid(password)}
-                            onChangeText={(password) =>
-                                inputActionHandler('password', password)
-                            }
+                            error={passwordError}
+                            onChangeText={(password) => inputActionHandler('password', password)}
                             secureTextEntry={flatTextSecureEntry}
                             right={
                                 <TextInput.Icon
-                                    name={flatTextSecureEntry ? 'eye' : 'eye-off'}
+                                    name={flatTextSecureEntry ? 'eye-off' : 'eye' }
                                     onPress={() =>
                                         dispatch({
                                             type: 'flatTextSecureEntry',
@@ -93,9 +104,14 @@ const initialState: State = {
                                 />
                             }
                         />
-                        <HelperText type="error" visible={!_isPasswordValid(password)} padding='none' style={styles.helper}>
-                            Error: Only letters are allowed
-                        </HelperText>
+                        {/*<HelperText*/}
+                        {/*    type="error"*/}
+                        {/*    // visible={!_isPasswordValid(password)}*/}
+                        {/*    visible={false}*/}
+                        {/*    padding='none'*/}
+                        {/*    style={styles.helper}>*/}
+                        {/*    Error: Only letters are allowed*/}
+                        {/*</HelperText>*/}
                     </View>
                     <Spacer size={'large'}>
                     <View style={{ flexDirection: 'row', justifyContent:'space-between'}}>

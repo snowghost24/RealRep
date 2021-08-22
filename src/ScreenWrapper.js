@@ -6,10 +6,12 @@ import {
     StyleSheet,
     View,
     ViewStyle,
-    KeyboardAwareScrollView,
+    StatusBar
 } from 'react-native';
 import { useTheme } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
 
 export default function ScreenWrapper({ children, withScrollView = true, style, contentContainerStyle, ...rest}: Props) {
     const {
@@ -28,7 +30,6 @@ export default function ScreenWrapper({ children, withScrollView = true, style, 
         },
     ];
 
-
     return (
         <>
             {withScrollView ? (
@@ -36,10 +37,12 @@ export default function ScreenWrapper({ children, withScrollView = true, style, 
                     {...rest}
                     contentContainerStyle={contentContainerStyle}
                     alwaysBounceVertical={false}
-                    showsVerticalScrollIndicator={true}
+                    showsVerticalScrollIndicator={false}
                     style={[containerStyle, style]}
                 >
+
                     {children}
+
                 </KeyboardAwareScrollView>
             ) : (
                 <View style={[containerStyle, style]}>{children}</View>

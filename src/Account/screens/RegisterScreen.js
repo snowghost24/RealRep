@@ -27,10 +27,14 @@ export const RegisterScreen = ({ navigation }) => {
 
     return (
         <ScreenWrapperStyled>
-            <AccountCover />
-            <AccountContainer>
-            {/*<Title variant="caption">YumMeals</Title>*/}
-            <GoogleAuthButton mode={'outlined'}>Sign in with Google</GoogleAuthButton>
+            <View>
+            <GoogleAuthButton
+                onPress={()=> null}
+                icon="google"
+                mode="outlined"
+                // mode={'outlined'}
+            >Sign in with Google</GoogleAuthButton>
+            </View>
             <Spacer size="large">
             <FacebookAuthButton mode={'outlined'}>Sign in with Facebook</FacebookAuthButton>
             </Spacer>
@@ -39,9 +43,6 @@ export const RegisterScreen = ({ navigation }) => {
                 <Title variant="caption">OR</Title>
             </View>
             </Spacer>
-
-
-
                 <Spacer size="large">
                 <AuthInput
                     label="E-mail"
@@ -90,7 +91,6 @@ export const RegisterScreen = ({ navigation }) => {
                         <ActivityIndicator animating={true} color={Colors.blue300} />
                     )}
                 </Spacer>
-            </AccountContainer>
         </ScreenWrapperStyled>
     );
 };

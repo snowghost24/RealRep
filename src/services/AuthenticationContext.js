@@ -29,7 +29,6 @@ export const AuthenticationContextProvider = ({ children }) => {
             setUser(response.data.user);
             setIsLoading(false);
         }).catch((err) => {
-                console.log("whats the error",err);
                 setIsLoading(false);
                 // setError(err.toString());
             });
@@ -59,7 +58,7 @@ export const AuthenticationContextProvider = ({ children }) => {
         // setUser(null);
         // firebase.auth().signOut();
     };
-console.log("the user", user)
+
     return (
         <AuthenticationContext.Provider
             value={{

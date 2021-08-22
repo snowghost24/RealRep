@@ -1,23 +1,10 @@
 import React,{ Fragment } from 'react';
-import {ImageBackground, View, StyleSheet, Platform, KeyboardAvoidingView,Image } from 'react-native';
+import {ImageBackground, View, StyleSheet, Platform, KeyboardAvoidingView, Image, StatusBar} from 'react-native';
 import { withTheme, Button, TextInput,useTheme,Text, } from 'react-native-paper';
 import { colors } from '../../infrastructure/theme/colors';
 // import { CustomText as Text } from '../../components/CustomText/CustomText';
 import ScreenWrapper from "../../ScreenWrapper";
 
-const TextInputAvoidingView = ({ children }) => {
-    return Platform.OS === 'ios' ? (
-        <KeyboardAvoidingView
-            style={styles.wrapper}
-            behavior="padding"
-            keyboardVerticalOffset={80}
-        >
-            {children}
-        </KeyboardAvoidingView>
-    ) : (
-        <>{children}</>
-    );
-};
 
 export const AccountBackground = ({children,...rest}) => {
     return <ImageBackground style={ styles.accountBackground } {...rest}>{children}</ImageBackground>;
@@ -25,13 +12,13 @@ export const AccountBackground = ({children,...rest}) => {
 
 export const ScreenWrapperStyled = ({children,...rest}) => {
     const { space } = useTheme();
-    return( <TextInputAvoidingView>
+    return(
        <ScreenWrapper
-        contentContainerStyle={[ styles.accountBackground, { marginLeft: space[3],marginRight: space[3] }]}
+        contentContainerStyle={[ styles.accountBackground, { paddingLeft: space[3],paddingRight: space[3] }]}
         keyboardShouldPersistTaps={'always'}
         removeClippedSubviews={false}
         {...rest}>{children}</ScreenWrapper>
-    </TextInputAvoidingView>)
+    )
 }
 
 export const AccountCover = ({children,...rest}) => {
@@ -62,7 +49,7 @@ export const AuthButton = ({children,...rest}) => {
 }
 
 export const GoogleAuthButton = ({children,...rest}) => {
-    let {space, colors } = useTheme();
+    let {space } = useTheme();
     return <Button
         labelStyle={{
             lineHeight:35,
@@ -70,11 +57,10 @@ export const GoogleAuthButton = ({children,...rest}) => {
             fontSize: 18,
         }}
         uppercase={false}
-        icon={"google"}
         color='#4285f4'
-        style={ [ styles.googleButton ]} {...rest}>{children}</Button>;
+        style={ [ styles.googleButton ]}
+        {...rest}>{children}</Button>;
 }
-
 
 export const FacebookAuthButton = ({children,...rest}) => {
     let {space } = useTheme();
@@ -141,12 +127,13 @@ const styles = StyleSheet.create({
     },
     accountBackground:{
         flex: 1,
-        // alignItems: 'center',
         justifyContent: 'center',
+        paddingTop: StatusBar.currentHeight,
 
-        // backgroundColor:'red'
     },   wrapper: {
-        flex: 1,
+        // flex: 1,
+        height:'100%',
+        backgroundColor:'green'
     },
 })
 
