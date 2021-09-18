@@ -22,15 +22,12 @@ import ScreenWrapper from "../../ScreenWrapper";
 import Login from "../../Login";
 import {APP_NAME} from "../../utils/constants";
 
-
-const MAX_LENGTH = 20;
-
 const initialState: State = {
     email:'',
     emailError:undefined,
     password:'',
     passwordError: undefined,
-    // flatTextPassword: '',
+
     flatTextSecureEntry: true,
 };
 
@@ -49,10 +46,7 @@ const initialState: State = {
 
      const _isPasswordValid = (password: string) => /^[a-zA-Z]*$/.test(password);
 
-
-
-     const inputActionHandler = (type, payload) =>
-         dispatch({
+     const inputActionHandler = (type, payload) => dispatch({
              type: type,
              payload: payload,
          });
@@ -72,24 +66,17 @@ const initialState: State = {
                             onFocus={() => inputActionHandler('emailError', '')}
                             onBlur={() => inputActionHandler('emailError', validationRules.isEmailValid(email))}
                         />
-                        {/*<HelperText*/}
-                        {/*    type="error"*/}
-                        {/*    visible={validationRules.isEmailValid(email)}*/}
-                        {/*    // visible={false}*/}
-                        {/*    padding='none'*/}
-                        {/*    style={styles.helper}>*/}
-                        {/*    Error: Only letters are allowed*/}
-                        {/*</HelperText>*/}
                     </Spacer>
-                    <View>
+                    <Spacer size={'large'}>
                         <AuthInput
                             mode="outlined"
-                            // style={styles.authInput}
                             label="Password"
                             placeholder="Enter Password"
                             value={password}
                             error={passwordError}
                             onChangeText={(password) => inputActionHandler('password', password)}
+                            onFocus={() => inputActionHandler('passwordError', '')}
+                            onBlur={() => inputActionHandler('passwordError', validationRules.safeVarChars(password))}
                             secureTextEntry={flatTextSecureEntry}
                             right={
                                 <TextInput.Icon
@@ -104,15 +91,15 @@ const initialState: State = {
                                 />
                             }
                         />
-                        {/*<HelperText*/}
-                        {/*    type="error"*/}
-                        {/*    // visible={!_isPasswordValid(password)}*/}
-                        {/*    visible={false}*/}
-                        {/*    padding='none'*/}
-                        {/*    style={styles.helper}>*/}
-                        {/*    Error: Only letters are allowed*/}
-                        {/*</HelperText>*/}
-                    </View>
+                    </Spacer>
+                    <HelperText
+                        type="error"
+                        // visible={!_isPasswordValid(password)}
+                        visible={ true }
+                        padding='none'
+                        style={styles.helper}>
+                        Error: Only letters are allowed
+                    </HelperText>
                     <Spacer size={'large'}>
                     <View style={{ flexDirection: 'row', justifyContent:'space-between'}}>
                     <LinkButton onPress={()=>navigation.navigate('ForgotPassword')}>Forgot Password</LinkButton>
@@ -126,6 +113,7 @@ const initialState: State = {
                                 icon="lock-open-outline"
                                 mode="contained"
                                 onPress={() => onLogin(email, password)}
+                                loading={true}
                             >
                                Log in
                             </AuthButton>

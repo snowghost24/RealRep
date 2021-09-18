@@ -13,11 +13,10 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 
-export default function ScreenWrapper({ children, withScrollView = true, style, contentContainerStyle, ...rest}: Props) {
+export default function ScreenWrapper({ children, withScrollView = true, style, contentContainerStyle, ...rest}) {
     const {
         colors: { background },
     } = useTheme();
-
     const insets = useSafeAreaInsets();
 
     const containerStyle = [
@@ -40,9 +39,7 @@ export default function ScreenWrapper({ children, withScrollView = true, style, 
                     showsVerticalScrollIndicator={false}
                     style={[containerStyle, style]}
                 >
-
                     {children}
-
                 </KeyboardAwareScrollView>
             ) : (
                 <View style={[containerStyle, style]}>{children}</View>
