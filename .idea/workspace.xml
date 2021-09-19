@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9a4c022-8924-45a6-afcc-56359a8b0ea2" name="Default Changelist" comment="iumm">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Account/screens/LoginScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account/screens/LoginScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ScreenWrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScreenWrapper.js" afterDir="false" />
-    </list>
+    <list default="true" id="c9a4c022-8924-45a6-afcc-56359a8b0ea2" name="Default Changelist" comment="iumm" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,6 +68,7 @@
       <workItem from="1630067187449" duration="321000" />
       <workItem from="1630335503558" duration="268000" />
       <workItem from="1631976879057" duration="1875000" />
+      <workItem from="1632085206386" duration="320000" />
     </task>
     <servers />
   </component>
