@@ -6,7 +6,7 @@ import {
   Colors,
   TouchableRipple,
 } from 'react-native-paper';
-import ScreenWrapper from '../ScreenWrapper';
+import ScreenWrapper from '../components/ScreenWrappers/ScreenWrapper';
 
 const CheckboxExample = () => {
   const [checkedNormal, setCheckedNormal] = React.useState(true);

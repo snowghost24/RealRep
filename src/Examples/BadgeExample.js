@@ -8,7 +8,7 @@ import {
   Switch,
   Colors,
 } from 'react-native-paper';
-import ScreenWrapper from '../ScreenWrapper';
+import ScreenWrapper from '../components/ScreenWrappers/ScreenWrapper';
 
 const BadgeExample = () => {
   const [visible, setVisible] = React.useState(true);

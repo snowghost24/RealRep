@@ -64,7 +64,7 @@ export const AuthenticationContextProvider = ({ children }) => {
             value={{
                 // isAuthenticated: !!user,
                 // isAuthenticated: !!user,
-                // isAuthenticated: !!user,
+                // isAuthenticated: false,
                 isAuthenticated: true,
                 isLoading,
                 user,

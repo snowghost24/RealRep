@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { View, Image, Dimensions, StyleSheet, Platform } from 'react-native';
 import { BottomNavigation } from 'react-native-paper';
-import ScreenWrapper from '../ScreenWrapper';
+import ScreenWrapper from '../components/ScreenWrappers/ScreenWrapper';
 
 // type RoutesState = Array<{
 //   key: string;

@@ -10,16 +10,15 @@ import {
     AuthInput,
     // Title,
     // ErrorContainer,
-} from '../components/Account.styles';
+} from '../Account/components/Account.styles';
 import { Spacer } from '../components/Spacer/Spacer';
-import { CustomText as Text } from '../../components/CustomText/CustomText';
+import { CustomText as Text } from '../components/CustomText/CustomText';
 
-import { AuthenticationContext } from '../../services/AuthenticationContext';
-import {inputReducer, State} from "../../utils";
+import { AuthenticationContext } from '../services/AuthenticationContext';
+import {inputReducer, State} from "../utils";
 import {KeyboardAvoidingView, Platform, StyleSheet, View,} from "react-native";
-import ScreenWrapper from "../../ScreenWrapper";
-import Login from "../../Login";
-import {APP_NAME} from "../../utils/constants";
+import ScreenWrapper from "../components/ScreenWrappers/ScreenWrapper";
+import {APP_NAME} from "../utils/constants";
 
 const MAX_LENGTH = 20;
 

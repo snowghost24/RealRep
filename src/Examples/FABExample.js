@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { FAB, Portal } from 'react-native-paper';
-import ScreenWrapper from '../ScreenWrapper';
+import ScreenWrapper from '../components/ScreenWrappers/ScreenWrapper';
 
 const ButtonExample = () => {
   const [visible, setVisible] = React.useState(true);

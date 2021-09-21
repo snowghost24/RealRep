@@ -2,7 +2,7 @@ import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import { Paragraph } from 'react-native-paper';
 import { Provider as PaperProvider } from 'react-native-paper';
-import ScreenWrapper from '../ScreenWrapper';
+import ScreenWrapper from '../components/ScreenWrappers/ScreenWrapper';
 
 const Content = () => {
   return (

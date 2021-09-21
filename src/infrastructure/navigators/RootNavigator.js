@@ -2,12 +2,11 @@ import * as React from 'react';
 import { Appbar } from 'react-native-paper';
 import { DrawerNavigationProp } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
-import About from '../routes/screens/About';
+import About from '../../../routes/screens/About';
 import { View, Text} from 'react-native';
-import Login from './Login';
-import ExampleList from "./ExampleList";
-import { examples } from "./ExampleList";
-import { APP_NAME } from "./utils/constants";
+import ExampleList from "../../ExampleList";
+import { examples } from "../../ExampleList";
+import { APP_NAME } from "../../utils/constants";
 import DrawerNavigator from "./DrawerNavigator";
 // import ExampleList, { examples } from './Examples';
 

@@ -3,7 +3,7 @@ import { StyleSheet, View, KeyboardAvoidingView, Platform } from 'react-native';
 import { TextInput, HelperText, useTheme } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { inputReducer, State } from '../utils/index';
-import ScreenWrapper from '../ScreenWrapper';
+import ScreenWrapper from '../components/ScreenWrappers/ScreenWrapper';
 
 const MAX_LENGTH = 20;
 

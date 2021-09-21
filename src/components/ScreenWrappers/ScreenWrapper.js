@@ -33,11 +33,13 @@ export default function ScreenWrapper({ children, withScrollView = true, style, 
         <>
             {withScrollView ? (
                 <KeyboardAwareScrollView
-                    {...rest}
                     contentContainerStyle={contentContainerStyle}
                     alwaysBounceVertical={false}
                     showsVerticalScrollIndicator={false}
+                    keyboardShouldPersistTaps={'always'}
+                    removeClippedSubviews={false}
                     style={[containerStyle, style]}
+                    {...rest}
                 >
                     {children}
                 </KeyboardAwareScrollView>

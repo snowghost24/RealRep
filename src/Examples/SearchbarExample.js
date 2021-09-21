@@ -2,7 +2,7 @@ import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import { Caption, Searchbar } from 'react-native-paper';
 import type { StackNavigationProp } from '@react-navigation/stack';
-import ScreenWrapper from '../ScreenWrapper';
+import ScreenWrapper from '../components/ScreenWrappers/ScreenWrapper';
 
 type Props = {
   navigation: StackNavigationProp<{}>;

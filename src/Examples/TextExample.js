@@ -7,7 +7,7 @@ import {
   Subheading,
   Title,
 } from 'react-native-paper';
-import ScreenWrapper from '../ScreenWrapper';
+import ScreenWrapper from '../components/ScreenWrappers/ScreenWrapper';
 
 const TextExample = () => {
   return (

@@ -7,42 +7,18 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import { InitialState, NavigationContainer, configureFonts } from '@react-navigation/native';
-import PaperExample from "./src/Index";
+import PaperExample from "./src/infrastructure/navigators";
 import { theme } from "./src/infrastructure/theme";
 import { PreferencesContext } from "./src/services/PreferencesContext";
+import { PERSISTENCE_KEY, PREFERENCES_KEY } from "./src/utils/constants";
 
 import {
     Provider as PaperProvider,
     DarkTheme,
     DefaultTheme,
 } from 'react-native-paper';
-// import Navigator from '../routes/homeStack';
-// import DrawerItems from '../routes/screens/DrawerItems';
-// import Header from './Header';
-// import RootNavigator from './RootNavigator';
-// import Drawer from './src/Drawer';
-// import App from './RootNavigator';
 import { useKeepAwake } from 'expo-keep-awake';
 import { AuthenticationContextProvider } from "./src/services/AuthenticationContext";
-// import { AccountNavigator } from "./AccountNavigator";
-// import { InitialState, NavigationContainer } from '@react-navigation/native';
-
-
-
-// press command D on the simulator to reload/debug and view menu
-
-
-// const theme = {
-//     ...DefaultTheme,
-//     colors: {
-//         ...DefaultTheme.colors,
-//         // primary: 'tomato',
-//         // accent: 'yellow',
-//     },
-// };
-
-const PERSISTENCE_KEY = 'NAVIGATION_STATE';
-const PREFERENCES_KEY = 'APP_PREFERENCES';
 
 const CustomDarkTheme = {
     ...DarkTheme,
@@ -190,13 +166,7 @@ function App() {
                 <AuthenticationContextProvider>
                     <PreferencesContext.Provider value={preferences}>
                         <React.Fragment>
-                            <NavigationContainer
-                                // theme={theme}
-                                initialState={initialState}
-                                onStateChange={(state) => AsyncStorage.setItem(PERSISTENCE_KEY, JSON.stringify(state))}
-                            >
-                                <PaperExample  preferences={preferences}/>
-                            </NavigationContainer>
+                            <PaperExample theme={theme} preferences={preferences} />
                         </React.Fragment>
                     </PreferencesContext.Provider>
                 </AuthenticationContextProvider>

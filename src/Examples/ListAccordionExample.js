@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { List, Divider } from 'react-native-paper';
-import ScreenWrapper from '../ScreenWrapper';
+import ScreenWrapper from '../components/ScreenWrappers/ScreenWrapper';
 
 const ListAccordionExample = () => {
   const [expanded, setExpanded] = React.useState(true);

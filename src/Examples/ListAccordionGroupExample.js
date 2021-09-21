@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { List } from 'react-native-paper';
-import ScreenWrapper from '../ScreenWrapper';
+import ScreenWrapper from '../components/ScreenWrappers/ScreenWrapper';
 
 type State = string | number | undefined;
 

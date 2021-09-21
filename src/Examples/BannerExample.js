@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { View, StyleSheet, Image, Dimensions, Platform } from 'react-native';
 import { Banner, FAB } from 'react-native-paper';
-import ScreenWrapper from '../ScreenWrapper';
+import ScreenWrapper from '../components/ScreenWrappers/ScreenWrapper';
 
 const PHOTOS = Array.from({ length: 24 }).map(
   (_, i) => `https://unsplash.it/300/300/?random&__id=${i}`

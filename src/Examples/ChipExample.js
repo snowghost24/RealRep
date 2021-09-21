@@ -2,7 +2,7 @@ import * as React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 import { Chip, List, useTheme, Snackbar } from 'react-native-paper';
 import color from 'color';
-import ScreenWrapper from '../ScreenWrapper';
+import ScreenWrapper from '../components/ScreenWrappers/ScreenWrapper';
 
 const ChipExample = () => {
   const [visible, setVisible] = React.useState(false);

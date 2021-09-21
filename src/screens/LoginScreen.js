@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { ActivityIndicator, Colors, HelperText, TextInput, Title } from 'react-native-paper';
-import { validationRules } from "../../utils/helperFunctions";
+import { validationRules } from "../utils/helperFunctions";
 import {
     AccountBackground,
     // AccountCover,
@@ -11,16 +11,14 @@ import {
     LinkButton,
     // Title,
     // ErrorContainer,
-} from '../components/Account.styles';
-import { Spacer } from '../components/Spacer/Spacer';
-import { CustomText as Text } from '../../components/CustomText/CustomText';
-
-import { AuthenticationContext } from '../../services/AuthenticationContext';
-import {inputReducer, State} from "../../utils";
+} from '../Account/components/Account.styles';
+import { Spacer } from "../components/Spacer/Spacer";
+import { CustomText as Text } from '../components/CustomText/CustomText';
+import { AuthenticationContext } from '../services/AuthenticationContext';
+import {inputReducer, State} from "../utils";
 import {KeyboardAvoidingView, Platform, StyleSheet, View,} from "react-native";
-import ScreenWrapper from "../../ScreenWrapper";
-import Login from "../../Login";
-import {APP_NAME} from "../../utils/constants";
+import ScreenWrapper from "../components/ScreenWrappers/ScreenWrapper";
+import {APP_NAME} from "../utils/constants";
 
 const initialState: State = {
     email:'',

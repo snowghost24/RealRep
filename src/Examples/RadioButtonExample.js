@@ -6,7 +6,7 @@ import {
   Colors,
   TouchableRipple,
 } from 'react-native-paper';
-import ScreenWrapper from '../ScreenWrapper';
+import ScreenWrapper from '../components/ScreenWrappers/ScreenWrapper';
 
 type State = 'normal' | 'normal-ios' | 'normal-item' | 'custom';
 

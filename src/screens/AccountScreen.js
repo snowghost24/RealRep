@@ -2,11 +2,11 @@ import React from 'react';
 import {
     AuthButton,
     ScreenWrapperStyled,
-} from '../components/Account.styles';
+} from '../Account/components/Account.styles';
 import { StyleSheet, View } from 'react-native';
 import { Title } from 'react-native-paper';
 import { Spacer } from '../components/Spacer/Spacer';
-import {APP_NAME} from "../../utils/constants";
+import {APP_NAME} from "../utils/constants";
 
 export const AccountScreen = ({ navigation }) => {
     return (

@@ -3,7 +3,7 @@ import {ImageBackground, View, StyleSheet, Platform, KeyboardAvoidingView, Image
 import { withTheme, Button, TextInput,useTheme,Text, } from 'react-native-paper';
 import { colors } from '../../infrastructure/theme/colors';
 // import { CustomText as Text } from '../../components/CustomText/CustomText';
-import ScreenWrapper from "../../ScreenWrapper";
+import ScreenWrapper from "../../components/ScreenWrappers/ScreenWrapper";
 
 
 export const AccountBackground = ({children,...rest}) => {
@@ -15,8 +15,8 @@ export const ScreenWrapperStyled = ({children,...rest}) => {
     return(
        <ScreenWrapper
         contentContainerStyle={[ styles.accountBackground, { paddingLeft: space[3],paddingRight: space[3] }]}
-        keyboardShouldPersistTaps={'always'}
-        removeClippedSubviews={false}
+        // keyboardShouldPersistTaps={'always'}
+        // removeClippedSubviews={false}
         {...rest}>{children}</ScreenWrapper>
     )
 }

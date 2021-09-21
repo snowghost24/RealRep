@@ -14,7 +14,7 @@ import {
   List,
   TouchableRipple,
 } from 'react-native-paper';
-import ScreenWrapper from '../ScreenWrapper';
+import ScreenWrapper from '../components/ScreenWrappers/ScreenWrapper';
 
 type ContextualMenuCoord = { x: number; y: number };
 

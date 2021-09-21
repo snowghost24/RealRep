@@ -2,7 +2,7 @@ import * as React from 'react';
 import { View, Platform, StyleSheet } from 'react-native';
 // import type { StackNavigationProp } from '@from react-navigation/stack';
 import { Appbar, FAB, Switch, Paragraph } from 'react-native-paper';
-import ScreenWrapper from '../ScreenWrapper';
+import ScreenWrapper from '../components/ScreenWrappers/ScreenWrapper';
 
 const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical';
 

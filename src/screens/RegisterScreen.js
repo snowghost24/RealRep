@@ -13,11 +13,11 @@ import {
     Title,
     TextInputAvoidingView,
     ErrorContainer,
-} from '../components/Account.styles';
+} from '../Account/components/Account.styles';
 import { Spacer } from '../components/Spacer/Spacer';
-import { CustomText as Text } from '../../components/CustomText/CustomText';
+import { CustomText as Text } from '../components/CustomText/CustomText';
 
-import { AuthenticationContext } from '../../services/AuthenticationContext';
+import { AuthenticationContext } from '../services/AuthenticationContext';
 
 export const RegisterScreen = ({ navigation }) => {
     const [email, setEmail] = useState('');

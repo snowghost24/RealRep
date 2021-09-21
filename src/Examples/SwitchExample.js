@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { View, StyleSheet, Platform } from 'react-native';
 import { Paragraph, Switch, Colors, TouchableRipple } from 'react-native-paper';
-import ScreenWrapper from '../ScreenWrapper';
+import ScreenWrapper from '../components/ScreenWrappers/ScreenWrapper';
 
 const SwitchExample = () => {
   const [valueNormal, setNormalValue] = React.useState(true);

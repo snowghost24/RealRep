@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, Image, View } from 'react-native';
 import { List, Text, Chip, Divider } from 'react-native-paper';
-import ScreenWrapper from '../ScreenWrapper';
+import ScreenWrapper from '../components/ScreenWrappers/ScreenWrapper';
 const ListSectionExample = () => {
   return (
     <ScreenWrapper>
