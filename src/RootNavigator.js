@@ -8,6 +8,7 @@ import Login from './Login';
 import ExampleList from "./ExampleList";
 import { examples } from "./ExampleList";
 import { APP_NAME } from "./utils/constants";
+import DrawerNavigator from "./DrawerNavigator";
 // import ExampleList, { examples } from './Examples';
 
 const Stack = createStackNavigator();
@@ -21,36 +22,11 @@ function HomeScreen() {
 
 export default function Root() {
   return (
-    <Stack.Navigator
-      headerMode="screen"
-      screenOptions={{
-        header: ({ navigation, scene, previous }) => (
-          <Appbar.Header>
-            {previous ? (
-              <Appbar.BackAction onPress={() => navigation.goBack()} />
-            ) : navigation.openDrawer ? (
-              <Appbar.Action
-                icon="menu"
-                onPress={() =>
-                  navigation.openDrawer()
-                }
-              />
-            ) : null}
-            <Appbar.Content title={scene.descriptor.options.title} />
-          </Appbar.Header>
-        ),
-      }}
-    >
-
-        {/*<Stack.Screen*/}
-        {/*    name="Home"*/}
-        {/*    component={Login}*/}
-        {/*    options={{ title: 'Real Rep' }}*/}
-        {/*/>*/}
+    <DrawerNavigator>
       <Stack.Screen
         name="Home"
         component={ExampleList}
-        options={{ title: APP_NAME }}
+        // options={{ title: APP_NAME }}
       />
 
        {Object.keys(examples).map((id) => (
@@ -60,8 +36,7 @@ export default function Root() {
            component={examples[id]}
            options={{ title: examples[id].title }}
          />
-      ))
-    }
-    </Stack.Navigator>
+      ))}
+    </DrawerNavigator>
   );
 }

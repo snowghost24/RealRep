@@ -32,10 +32,15 @@ const DrawerItemsData = [
   { label: 'A very long title that will be truncated', icon: 'delete', key: 4 },
 ];
 
-const DrawerItems = ({ toggleTheme, toggleRTL, isRTL, isDarkTheme }) => {
+const DrawerItems = ({navigation, toggleTheme, toggleRTL, isRTL, isDarkTheme }) => {
   const [drawerItemIndex, setDrawerItemIndex] = React.useState(0);
 
-  const _setDrawerItem = (index ) => setDrawerItemIndex(index);
+  const _setDrawerItem = (index ) => {
+    console.log('index')
+    setDrawerItemIndex(index);
+    // here we set index were to navigate to
+    navigation.navigate('Home2')
+  }
 
   const { colors } = useTheme();
 

@@ -63,7 +63,9 @@ export const AuthenticationContextProvider = ({ children }) => {
         <AuthenticationContext.Provider
             value={{
                 // isAuthenticated: !!user,
-                isAuthenticated: !!user,
+                // isAuthenticated: !!user,
+                // isAuthenticated: !!user,
+                isAuthenticated: true,
                 isLoading,
                 user,
                 error,

@@ -10,8 +10,8 @@
   "dependencies": {
     "@react-native-async-storage/async-storage": "~1.15.0",
     "@react-native-community/masked-view": "0.1.10",
+    "@react-navigation/bottom-tabs": "^5.11.15",
     "@react-navigation/drawer": "^5.12.5",
-    "@react-navigation/material-bottom-tabs": "^6.0.5",
     "@react-navigation/native": "^5.9.4",
     "@react-navigation/stack": "^5.14.5",
     "axios": "^0.21.1",
@@ -32,7 +32,8 @@
     "undefined": "react-native-community/async-storage"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0"
+    "@babel/core": "^7.9.0",
+    "@expo/vector-icons": "^12.0.5"
   },
   "private": true
 }

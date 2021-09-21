@@ -191,6 +191,7 @@ function App() {
                     <PreferencesContext.Provider value={preferences}>
                         <React.Fragment>
                             <NavigationContainer
+                                // theme={theme}
                                 initialState={initialState}
                                 onStateChange={(state) => AsyncStorage.setItem(PERSISTENCE_KEY, JSON.stringify(state))}
                             >

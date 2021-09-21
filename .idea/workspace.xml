@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9a4c022-8924-45a6-afcc-56359a8b0ea2" name="Default Changelist" comment="iumm" />
+    <list default="true" id="c9a4c022-8924-45a6-afcc-56359a8b0ea2" name="Default Changelist" comment="iumm">
+      <change afterPath="$PROJECT_DIR$/src/DrawerNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/.react/AppEntry.bundle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/.react/AppEntry.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/.react/debuggerWorker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/screens/DrawerItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/screens/DrawerItems.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RootNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/RootNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/AuthenticationContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AuthenticationContext.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,7 +81,8 @@
       <workItem from="1630067187449" duration="321000" />
       <workItem from="1630335503558" duration="268000" />
       <workItem from="1631976879057" duration="1875000" />
-      <workItem from="1632085206386" duration="320000" />
+      <workItem from="1632085206386" duration="1837000" />
+      <workItem from="1632145958549" duration="10081000" />
     </task>
     <servers />
   </component>
