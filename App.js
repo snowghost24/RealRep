@@ -5,12 +5,26 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Updates } from 'expo';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Pusher from 'pusher-js/react-native';
 import { StatusBar } from 'expo-status-bar';
 import { InitialState, NavigationContainer, configureFonts } from '@react-navigation/native';
 import AppNavContainer from "./src/infrastructure/navigators";
 import { theme } from "./src/infrastructure/theme";
 import { PreferencesContext } from "./src/services/PreferencesContext";
 import { PERSISTENCE_KEY, PREFERENCES_KEY } from "./src/utils/constants";
+
+
+// Enable pusher logging - don't include this in production
+Pusher.logToConsole = true;
+
+const pusher = new Pusher('86f6efe6e6310549081e', {
+    cluster: 'us2'
+});
+
+const channel = pusher.subscribe('my-channel');
+channel.bind('my-event', function(data) {
+    alert(JSON.stringify(data));
+});
 
 import {
     Provider as PaperProvider,
