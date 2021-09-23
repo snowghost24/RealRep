@@ -8,10 +8,7 @@ const HomeScreen2 = ({ navigation }) => {
             <Button
                 title="Go to Settings"
                 onPress={() =>
-                    navigation.navigate('Root', {
-                        screen: 'Settings',
-                        params: { user: 'jane' },
-                    })
+                    navigation.navigate('Feed')
                 }
             />
         </View>

@@ -1,53 +1,70 @@
 import * as React from 'react';
-import { I18nManager, Platform , StyleSheet, View, Text, Button} from 'react-native';
+import { Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Updates } from 'expo';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { StatusBar } from 'expo-status-bar';
-import { PreferencesContext } from "../../services/PreferencesContext";
-import DrawerItems from '../../screens/features/DrawerItems';
 import { AuthenticationContext } from "../../services/AuthenticationContext";
 import { AccountNavigator } from "./AccountNavigator";
-import {NavigationContainer} from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 import HomeTabsNavigator from "./HomeTabsNavigator";
 import HomeScreen2 from "../../screens/HomeScreen2";
 import DrawerContentFeature from "../../screens/features/DrawerContentFeature";
 import { PERSISTENCE_KEY } from "../../utils/constants";
-
+import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
+import WebScreen from "../../screens/WebScreen";
+import NewHome from "./NewHome";
+import {createStackNavigator} from "@react-navigation/stack";
+import ProfileScreen from "../../screens/ProfileScreen";
 
 const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator();
 
 
-function HomeScreen() {
+
+function NewHomeNavigation(props) {
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Home Screen</Text>
-        </View>
+        <Stack.Navigator>
+            <Stack.Screen
+                initialRouteName="feed"
+                name="NewHome"
+                component={NewHome}
+                options={{
+                    headerShown: false,
+                }}
+            />
+            <Stack.Screen name="Profile" component={ProfileScreen} />
+            {/*<Stack.Screen name="Settings" component={Settings} />*/}
+        </Stack.Navigator>
     );
 }
 
-function PaperExample({initialState, theme }) {
-  const { isAuthenticated } = React.useContext(AuthenticationContext);
-
-  return (
-      <NavigationContainer
+function AppNavContainer({ initialState, theme }) {
+    const { isAuthenticated } = React.useContext(AuthenticationContext);
+    return (
+        <NavigationContainer
           theme={theme}
           initialState={initialState}
           onStateChange={(state) => AsyncStorage.setItem(PERSISTENCE_KEY, JSON.stringify(state))}
-      >
+        >
             { isAuthenticated ? ( <React.Fragment>
-              { Platform.OS === 'web' ? (
-                  <HomeScreen />
-              ) : (
-                  <Drawer.Navigator drawerContent={(props) => <DrawerContentFeature {...props} />}>
-                      <Drawer.Screen name="Home" component={HomeTabsNavigator} />
-                      <Drawer.Screen name="Home2" component={HomeScreen2} />
-                  </Drawer.Navigator>
-              ) }
-              <StatusBar style="light" />
+                { Platform.OS === 'web' ? (
+                     <WebScreen />
+                ) : (
+
+                    // <HomeTabsNavigator />
+                    <Drawer.Navigator drawerContent={(props) => <DrawerContentFeature {...props} />}>
+                        <Drawer.Screen
+                            name="NewHome"
+                            component={NewHome}
+                            options={{ headerShown: false }}
+                        />
+                        <Drawer.Screen name="Home2" component={HomeScreen2} />
+                    </Drawer.Navigator>
+                ) }
+                {/*TODO :change the style back to auto*/}
+                <ExpoStatusBar style="light" />
             </React.Fragment> ) : <AccountNavigator /> }
       </NavigationContainer>
   );
 }
 
-export default PaperExample;
+export default AppNavContainer;

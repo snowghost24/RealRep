@@ -7,7 +7,7 @@ const ProfileScreen = ({ navigation }) => {
             <Text>Profile Screen</Text>
             <Button
                 title="Go to Settings"
-                onPress={() => navigation.navigate('Settings', {itemId : 123, otherParam: "Jose" })}
+                onPress={() => navigation.navigate('Settings')}
             />
 
         </View>

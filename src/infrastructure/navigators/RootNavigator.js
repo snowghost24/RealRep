@@ -21,21 +21,25 @@ function HomeScreen() {
 
 export default function Root() {
   return (
-    <DrawerNavigator>
-      <Stack.Screen
-        name="Home"
-        component={ExampleList}
-        // options={{ title: APP_NAME }}
-      />
+     //<DrawerNavigator>
 
-       {Object.keys(examples).map((id) => (
-         <Stack.Screen
-           key={id}
-           name={id}
-           component={examples[id]}
-           options={{ title: examples[id].title }}
-         />
-      ))}
-    </DrawerNavigator>
+      <>
+          <Stack.Screen
+              name="RootHome"
+              component={ExampleList}
+              // options={{ title: APP_NAME }}
+          />
+
+          {Object.keys(examples).map((id) => (
+              <Stack.Screen
+                  key={id}
+                  name={id}
+                  component={examples[id]}
+                  options={{ title: examples[id].title }}
+              />
+          ))}
+      </>
+     //</DrawerNavigator>
+
   );
 }

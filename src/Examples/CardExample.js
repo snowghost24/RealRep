@@ -108,11 +108,11 @@ const CardExample = () => {
           }}
           mode={mode}
         >
-          <Card.Cover source={require('../../assets/images/city.jpg')} />
           <Card.Title
             title="Long Pressable City"
             left={(props) => <Avatar.Icon {...props} icon="city" />}
           />
+          <Card.Cover source={require('../../assets/images/city.jpg')} />
           <Card.Content>
             <Paragraph>
               This is a long press only city. If you long press me, I will

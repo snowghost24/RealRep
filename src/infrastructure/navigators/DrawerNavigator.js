@@ -10,7 +10,8 @@ export default function DrawerNavigator({children}) {
         <Stack.Navigator
             headerMode="screen"
             screenOptions={{
-                header: (props) => <MainPageHeader {...props}/>,
+                headerMode:"screen",
+                // header: (props) => <MainPageHeader {...props}/>,
             }}
         >
             {children}

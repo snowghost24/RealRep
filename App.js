@@ -7,7 +7,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import { InitialState, NavigationContainer, configureFonts } from '@react-navigation/native';
-import PaperExample from "./src/infrastructure/navigators";
+import AppNavContainer from "./src/infrastructure/navigators";
 import { theme } from "./src/infrastructure/theme";
 import { PreferencesContext } from "./src/services/PreferencesContext";
 import { PERSISTENCE_KEY, PREFERENCES_KEY } from "./src/utils/constants";
@@ -166,7 +166,7 @@ function App() {
                 <AuthenticationContextProvider>
                     <PreferencesContext.Provider value={preferences}>
                         <React.Fragment>
-                            <PaperExample theme={theme} preferences={preferences} />
+                            <AppNavContainer initialState={initialState} theme={theme} preferences={preferences} />
                         </React.Fragment>
                     </PreferencesContext.Provider>
                 </AuthenticationContextProvider>
