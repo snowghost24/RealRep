@@ -7,12 +7,13 @@ import MainPageHeader from "../../components/Headers/MainPageHeader";
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import FeedScreen from "../../screens/FeedScreen";
 import FeedTopNavigator from "./FeedTopNavigator";
+import CommentsListBanner from "../../components/Banners/CommentsListBanner";
 
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
 
-function Actions({navigation}) {
+function Tackle({navigation}) {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text>Actions Screen</Text>
@@ -25,6 +26,23 @@ function Actions({navigation}) {
         </View>
     );
 }
+
+function Comment(props) {
+    return (
+        <View>
+            <CommentsListBanner {...props}/>
+            <Text>Actions Screen</Text>
+            <Button
+                title="Message Screen can go to profile"
+                onPress={() =>
+                   props.navigation.navigate('Home2')
+                }
+            />
+        </View>
+    );
+}
+
+
 
 
 function Messages({navigation}) {
@@ -63,8 +81,8 @@ function FeedStack(props) {
                 header: (props) => <MainPageHeader {...props}/>,
             }}
         >
-            <Stack.Screen name="Messages" component={FeedTopNavigator}/>
-            <Stack.Screen name="Actions" component={Actions} />
+            <Stack.Screen name="NewsDetails" component={News}/>
+            {/*<Stack.Screen name="Actions" component={Actions} />*/}
             {/*<Stack.Screen name="Settings" component={Settings} />*/}
         </Stack.Navigator>
     );
@@ -78,8 +96,9 @@ function NewsStack(props) {
                 header: (props) => <MainPageHeader {...props}/>,
             }}
         >
-            <Stack.Screen name="NewsDetails" component={News}/>
-            {/*<Stack.Screen name="Actions" component={Actions} />*/}
+            <Stack.Screen name="News" component={FeedTopNavigator}/>
+            <Stack.Screen name="Tackle" component={Tackle} />
+            <Stack.Screen name="Comment" component={Comment} />
             {/*<Stack.Screen name="Settings" component={Settings} />*/}
         </Stack.Navigator>
     );
@@ -90,14 +109,15 @@ const NewHome = () => {
     return (
         <Tab.Navigator
             // headerMode="screen"
-            initialRouteName="Feed"
+            initialRouteName="News"
         >
             <Tab.Screen
-                name="News"
+                name="NewsStack"
                 component={NewsStack}
                 options={{
                     tabBarIcon:'note-text',
                     headerShown: false,
+                    tabBarLabel:"News"
                 }}
             />
             <Tab.Screen
