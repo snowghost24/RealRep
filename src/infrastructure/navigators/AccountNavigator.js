@@ -1,28 +1,19 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-
 import { AccountScreen } from '../../screens/AccountScreen';
 import  LoginScreen  from '../../screens/LoginScreen';
- import { RegisterScreen } from '../../screens/RegisterScreen';
- import { ForgotPasswordScreen } from "../../screens/ForgotPasswordScreen";
-
-import {Appbar, useTheme} from "react-native-paper";
+import { RegisterScreen } from '../../screens/RegisterScreen';
+import { ForgotPasswordScreen } from "../../screens/ForgotPasswordScreen";
+import MainPageHeader from "../../components/Headers/MainPageHeader";
 
 const Stack = createStackNavigator();
 
 export const AccountNavigator = () => {
-    const { colors } = useTheme();
     return (
     <Stack.Navigator
-        headerMode="screen"
         screenOptions={{
-            header: ({ navigation, scene, previous }) => (
-                <Appbar.Header>
-                    {previous && (
-                        <Appbar.BackAction onPress={() => navigation.goBack()} />
-                    )}
-                </Appbar.Header>
-            ),
+            headerMode:"screen",
+            header: (props) => <MainPageHeader {...props}/>,
         }}
     >
         <Stack.Screen name="Main" component={AccountScreen}/>
