@@ -1,40 +1,46 @@
 import React, { useState, createContext } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import _ from 'lodash';
 import AxiosInstance from '../utils/axiosInstance';
-import {Platform} from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { BEARER_TOKEN } from "../utils/constants";
-import {DarkTheme} from "react-native-paper";
-// import * as firebase from 'firebase';
-
-// import { loginRequest } from './authentication.service';
+import { BEARER_TOKEN } from '../utils/constants';
 
 export const AuthenticationContext = createContext();
 
-export const AuthenticationContextProvider = ({ children }) => {
-    const [isLoading, setIsLoading] = useState(false);
-    const [user, setUser] = useState(null);
-    const [error, setError] = useState(null);
+export const AuthenticationContextProvider = ( { children } ) => {
+    const [ isLoading, setIsLoading ] = useState( false );
+    const [ user, setUser ] = useState( null );
+    const [ error, setError ] = useState( null );
 
-    const onLogin = (email, password) => {
-        setIsLoading(true);
-        AxiosInstance.post('/login',{
+    const onLogin = ( email, password ) => {
+        setIsLoading( true );
+        AxiosInstance.post( '/login', {
             email,
             password,
-            device_name: "something"
-        }).then((response) => {
-             return AsyncStorage.setItem(BEARER_TOKEN, response.data.token).then(()=>{
-                 return response
-             });
-            }).then((response) => {
-            setUser(response.data.user);
-            setIsLoading(false);
-        }).catch((err) => {
-                setIsLoading(false);
-                // setError(err.toString());
-            });
+            device_name: 'something',
+        } ).then( ( response ) => {
+            if ( _.get( response.data.token ) ) {
+                AsyncStorage.setItem( BEARER_TOKEN, response.data.token );
+            }
+            return response;
+        } ).then( ( response ) => {
+            setUser( response.data.user );
+            setIsLoading( false );
+        } ).catch( ( err ) => {
+            if ( _.get( err.response.status ) === 422 ) {
+                if ( _.get( err.response.data.errors.email[ 0 ] ) ) {
+                    setError( _.get( err.response.data.errors.email[ 0 ] ).toString() );
+                } else if ( _.get( err.response.data.errors.password[ 0 ] ) ) {
+                    setError( _.get( err.response.data.errors.password[ 0 ] ).toString() );
+                }
+                setIsLoading( false );
+            } else {
+                setError( 'Unable to authenticate, please check username and password' );
+                setIsLoading( false );
+            }
+        } );
     };
 
-    const onRegister = (email, password, repeatedPassword) => {
+    const onRegister = ( email, password, repeatedPassword ) => {
         // setIsLoading(true);
         // if (password !== repeatedPassword) {
         //     setError('Error: Passwords do not match');
@@ -55,24 +61,30 @@ export const AuthenticationContextProvider = ({ children }) => {
     };
 
     const onLogout = () => {
-        // setUser(null);
-        // firebase.auth().signOut();
+        setIsLoading( true );
+        AxiosInstance.post( '/logout' ).then( ( ) => {
+            setUser( null );
+            setIsLoading( false );
+            AsyncStorage.setItem( BEARER_TOKEN, null );
+        } ).catch( ( ) => {
+            setUser( null );
+            setIsLoading( false );
+            AsyncStorage.setItem( BEARER_TOKEN, null );
+        } );
     };
 
     return (
         <AuthenticationContext.Provider
-            value={{
-                // isAuthenticated: !!user,
-                // isAuthenticated: !!user,
-                // isAuthenticated: false,
-                isAuthenticated: true,
+            value={ {
+                isAuthenticated: !!user,
                 isLoading,
                 user,
                 error,
+                setError,
                 onLogin,
                 onRegister,
                 onLogout,
-            }}
+            } }
         >
             {children}
         </AuthenticationContext.Provider>

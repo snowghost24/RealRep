@@ -35,15 +35,15 @@ export const RegisterScreen = ({ navigation }) => {
                 // mode={'outlined'}
             >Sign in with Google</GoogleAuthButton>
             </View>
-            <Spacer size="large">
+            <Spacer size="md">
             <FacebookAuthButton mode={'outlined'}>Sign in with Facebook</FacebookAuthButton>
             </Spacer>
-            <Spacer size="large">
+            <Spacer size="md">
             <View style={{display:'flex', flexDirection:'row', justifyContent:'center'}}>
                 <Title variant="caption">OR</Title>
             </View>
             </Spacer>
-                <Spacer size="large">
+                <Spacer size="md">
                 <AuthInput
                     label="E-mail"
                     value={email}
@@ -53,7 +53,7 @@ export const RegisterScreen = ({ navigation }) => {
                     onChangeText={(userEmail) => setEmail(userEmail)}
                 />
                 </Spacer>
-                <Spacer size="large">
+                <Spacer size="md">
                     <AuthInput
                         label="Password"
                         value={password}
@@ -63,7 +63,7 @@ export const RegisterScreen = ({ navigation }) => {
                         onChangeText={(userPass) => setPassword(userPass)}
                     />
                 </Spacer>
-                <Spacer size="large">
+                <Spacer size="md">
                     <AuthInput
                         label="Repeat Password"
                         value={repeatedPassword}
@@ -74,11 +74,11 @@ export const RegisterScreen = ({ navigation }) => {
                     />
                 </Spacer>
                 {error && (
-                    <ErrorContainer size="large">
+                    <ErrorContainer size="md">
                         <Text variant="error">{error}</Text>
                     </ErrorContainer>
                 )}
-                <Spacer size="large">
+                <Spacer size="md">
                     {!isLoading ? (
                         <AuthButton
                             icon="email"

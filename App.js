@@ -1,17 +1,24 @@
 // export { default } from './src/Index';
 import * as React from 'react';
-import { I18nManager, Platform , StyleSheet, View, Text, f} from 'react-native';
+import {
+    I18nManager, Platform, StyleSheet, View, Text, f,
+} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Updates } from 'expo';
-import { createDrawerNavigator } from '@react-navigation/drawer';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Pusher from 'pusher-js/react-native';
 import { StatusBar } from 'expo-status-bar';
 import { InitialState, NavigationContainer, configureFonts } from '@react-navigation/native';
-import AppNavContainer from "./src/infrastructure/navigators";
-import { theme } from "./src/infrastructure/theme";
-import { PreferencesContext } from "./src/services/PreferencesContext";
-import { PERSISTENCE_KEY, PREFERENCES_KEY } from "./src/utils/constants";
+import {
+    Provider as PaperProvider,
+    DarkTheme,
+    DefaultTheme,
+} from 'react-native-paper';
+import { useKeepAwake } from 'expo-keep-awake';
+import AppNavContainer from './src/infrastructure/navigators';
+import { theme } from './src/infrastructure/theme';
+import { PreferencesContext } from './src/services/PreferencesContext';
+import { PERSISTENCE_KEY, PREFERENCES_KEY } from './src/utils/constants';
 
 // Enable pusher logging - don't include this in production
 // Pusher.logToConsole = true;
@@ -25,34 +32,27 @@ import { PERSISTENCE_KEY, PREFERENCES_KEY } from "./src/utils/constants";
 //     alert(JSON.stringify(data));
 // });
 
-import {
-    Provider as PaperProvider,
-    DarkTheme,
-    DefaultTheme,
-} from 'react-native-paper';
-import { useKeepAwake } from 'expo-keep-awake';
-import { AuthenticationContextProvider } from "./src/services/AuthenticationContext";
+import { AuthenticationContextProvider } from './src/services/AuthenticationContext';
 
 const CustomDarkTheme = {
     ...DarkTheme,
     colors: {
         ...DarkTheme.colors,
         customColor: '#BADA55',
-        ...theme.colors
+        // ...theme.colors
     },
     fonts: {
         ...DarkTheme.fonts,
-        superLight: { ...DarkTheme.fonts['light'] },
-        ...theme.fonts
+        superLight: { ...DarkTheme.fonts.light },
+        // ...theme.fonts
 
     },
-    userDefinedThemeProperty: '',
+    userDefinedThemeProperty: 'space',
     animation: {
         ...DarkTheme.animation,
         customProperty: 1,
     },
-
-
+    space: [ 0, 4, 8, 16, 32, 64 ],
 };
 
 const CustomDefaultTheme = {
@@ -63,124 +63,127 @@ const CustomDefaultTheme = {
     },
     fonts: {
         ...DefaultTheme.fonts,
-        superLight: { ...DefaultTheme.fonts['light'] },
-        ...theme.fonts
+        superLight: { ...DefaultTheme.fonts.light },
+        // ...theme.fonts
     },
-    userDefinedThemeProperty: '',
+    userDefinedThemeProperty: 'space',
     animation: {
         ...DefaultTheme.animation,
         customProperty: 1,
     },
-    space: [0,4,8,16,32,64]
+    space: {
+        none: 0,
+        xs: 4,
+        sm: 8,
+        md: 16,
+        lg: 32,
+        xl: 64,
+    },
 };
 
-
 function App() {
+    // console.log("the custom default theme",CustomDefaultTheme)
     useKeepAwake();
-    const [isReady, setIsReady] = React.useState(false);
-    const [initialState, setInitialState] = React.useState();
+    const [ isReady, setIsReady ] = React.useState( false );
+    const [ initialState, setInitialState ] = React.useState();
 
-    const [theme, setTheme] = React.useState(
-        CustomDefaultTheme
+    const [ theme, setTheme ] = React.useState(
+        CustomDefaultTheme,
     );
 
-    const [rtl, setRtl] = React.useState(I18nManager.isRTL);
+    const [ rtl, setRtl ] = React.useState( I18nManager.isRTL );
 
-    React.useEffect(() => {
-        const restoreState = async () => {
+    React.useEffect( () => {
+        const restoreState = async() => {
             try {
-                const savedStateString = await AsyncStorage.getItem(PERSISTENCE_KEY);
+                const savedStateString = await AsyncStorage.getItem( PERSISTENCE_KEY );
                 // const savedStateString = '';
-                const state = JSON.parse(savedStateString || '');
+                const state = JSON.parse( savedStateString || '' );
 
-                setInitialState(state);
-            } catch (e) {
+                setInitialState( state );
+            } catch ( e ) {
                 // ignore error
             } finally {
-                setIsReady(true);
+                setIsReady( true );
             }
         };
 
-        if (!isReady) {
+        if ( !isReady ) {
             restoreState();
         }
-    }, [isReady]);
+    }, [ isReady ] );
 
-    React.useEffect(() => {
-        const restorePrefs = async () => {
+    React.useEffect( () => {
+        const restorePrefs = async() => {
             try {
                 // const prefString = await AsyncStorage.getItem(PREFERENCES_KEY);
                 const prefString = '';
-                const preferences = JSON.parse(prefString || '');
+                const preferences = JSON.parse( prefString || '' );
 
-                if (preferences) {
+                if ( preferences ) {
                     // eslint-disable-next-line react/no-did-mount-set-state
                     setTheme(
-                        preferences.theme === 'dark' ? CustomDarkTheme : CustomDefaultTheme
+                        preferences.theme === 'dark' ? CustomDarkTheme : CustomDefaultTheme,
                     );
 
-                    if (typeof preferences.rtl === 'boolean') {
-                        setRtl(preferences.rtl);
+                    if ( typeof preferences.rtl === 'boolean' ) {
+                        setRtl( preferences.rtl );
                     }
                 }
-            } catch (e) {
+            } catch ( e ) {
                 // ignore error
             }
         };
 
         restorePrefs();
-    }, []);
+    }, [] );
 
-
-    React.useEffect(() => {
-        const savePrefs = async () => {
+    React.useEffect( () => {
+        const savePrefs = async() => {
             try {
                 await AsyncStorage.setItem(
                     PREFERENCES_KEY,
-                    JSON.stringify({
+                    JSON.stringify( {
                         theme: theme === DarkTheme ? 'dark' : 'light',
                         rtl,
-                    })
+                    } ),
                 );
-            } catch (e) {
+            } catch ( e ) {
                 // ignore error
             }
 
-            if (I18nManager.isRTL !== rtl) {
-                I18nManager.forceRTL(rtl);
+            if ( I18nManager.isRTL !== rtl ) {
+                I18nManager.forceRTL( rtl );
                 Updates.reloadFromCache();
             }
         };
 
         savePrefs();
-    }, [rtl, theme]);
+    }, [ rtl, theme ] );
 
     const preferences = React.useMemo(
-        () => ({
-            toggleTheme: () =>
-                setTheme((theme) =>
-                    theme === CustomDefaultTheme ? CustomDarkTheme : CustomDefaultTheme
-                ),
-            toggleRtl: () => setRtl((rtl) => !rtl),
+        () => ( {
+            toggleTheme: () => setTheme( ( theme ) => ( theme === CustomDefaultTheme ? CustomDarkTheme : CustomDefaultTheme ) ),
+            toggleRtl: () => setRtl( ( rtl ) => !rtl ),
             rtl,
             theme,
-        }),
-        [rtl, theme]
+        } ),
+        [ rtl, theme ],
     );
 
-    if (!isReady) {
+    if ( !isReady ) {
         return null;
     }
 
     // const isAuthenticated = false;
     return (
-        <PaperProvider theme={theme}>
+        <PaperProvider theme={ theme }>
             <SafeAreaProvider>
                 <AuthenticationContextProvider>
-                    <PreferencesContext.Provider value={preferences}>
-                        <React.Fragment>
-                            <AppNavContainer initialState={initialState} theme={theme} preferences={preferences} />
-                        </React.Fragment>
+                    <PreferencesContext.Provider value={ preferences }>
+                        <>
+                            <AppNavContainer initialState={ initialState } theme={ theme } preferences={ preferences } />
+                        </>
                     </PreferencesContext.Provider>
                 </AuthenticationContextProvider>
             </SafeAreaProvider>

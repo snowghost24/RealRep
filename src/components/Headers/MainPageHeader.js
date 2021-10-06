@@ -2,7 +2,6 @@ import React from 'react';
 import {Appbar} from "react-native-paper";
 
 function MainPageHeader({ navigation, scene, progress, route }) {
-    console.log("Is there a previous" )
     return (
         <Appbar.Header>
             { progress.previous ? (

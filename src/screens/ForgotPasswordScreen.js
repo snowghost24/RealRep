@@ -65,7 +65,7 @@ export const ForgotPasswordScreen = ({ navigation }) => {
                 <Title style={styles.text}>Reset Password</Title>
                 <Subheading style={styles.text}>Enter your email below and hit reset password. A link will be sent that will redirect you to a reset password page
                 </Subheading>
-                <Spacer size={'large'}>
+                <Spacer size={'lg'}>
                     <AuthInput
                         // mode="outlined"
                         label="Email"

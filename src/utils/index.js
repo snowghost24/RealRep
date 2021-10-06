@@ -1,11 +1,13 @@
 export function inputReducer(
     state,
-    action
+    action,
 ) {
-    console.log("state action", state, action)
-    switch (action.type) {
+    // console.log( 'input reducer state action', action );
+    // console.log( 'input reducer state action', action );
+    switch ( action.type ) {
         case action.type:
-            state[action.type] = action.payload;
+            // eslint-disable-next-line no-param-reassign
+            state[ action.type ] = action.payload;
             return { ...state };
         default:
             return { ...state };

@@ -1,159 +1,138 @@
-import React, { useState, useContext } from 'react';
-import { ActivityIndicator, Colors, HelperText, TextInput, Title } from 'react-native-paper';
-import { validationRules } from "../utils/helperFunctions";
+import React, { useContext } from 'react';
 import {
-    AccountBackground,
-    // AccountCover,
-    AccountContainer,
+    TextInput,
+    Title,
+} from 'react-native-paper';
+import { StyleSheet, View } from 'react-native';
+import { validationRules } from '../utils/helperFunctions';
+import {
     AuthButton,
     ScreenWrapperStyled,
     AuthInput,
     LinkButton,
-    // Title,
-    // ErrorContainer,
 } from '../Account/components/Account.styles';
-import { Spacer } from "../components/Spacer/Spacer";
-import { CustomText as Text } from '../components/CustomText/CustomText';
+import { Spacer } from '../components/Spacer/Spacer';
 import { AuthenticationContext } from '../services/AuthenticationContext';
-import {inputReducer, State} from "../utils";
-import {KeyboardAvoidingView, Platform, StyleSheet, View,} from "react-native";
-import ScreenWrapper from "../components/ScreenWrappers/ScreenWrapper";
-import {APP_NAME} from "../utils/constants";
+import { inputReducer } from '../utils';
+import { APP_NAME } from '../utils/constants';
+import TextFieldHelperMessage from '../components/TextFieldHelperMessage/TextFieldHelperMessage';
 
-const initialState: State = {
-    email:'',
-    emailError:undefined,
-    password:'',
-    passwordError: undefined,
-
-    flatTextSecureEntry: true,
-};
-
-
- const LoginScreen = ({ navigation }) => {
-    const { onLogin, isLoading, error } = useContext(AuthenticationContext);
-    const [ state, dispatch ] = React.useReducer(inputReducer, initialState);
-
-     const {
-         email,
-         emailError,
-         password,
-         passwordError,
-         flatTextSecureEntry,
-     } = state;
-
-     const _isPasswordValid = (password: string) => /^[a-zA-Z]*$/.test(password);
-
-     const inputActionHandler = (type, payload) => dispatch({
-             type: type,
-             payload: payload,
-         });
-
-    return (
-                <ScreenWrapperStyled>
-                    {/*<AccountContainer>*/}
-                    <Title style={styles.text}>Log in to {APP_NAME}</Title>
-                    <Spacer size={'large'}>
-                        <AuthInput
-                            mode="outlined"
-                            label="Email"
-                            placeholder="Enter email"
-                            value={email}
-                            error={emailError}
-                            onChangeText={(email) => inputActionHandler('email', email)}
-                            onFocus={() => inputActionHandler('emailError', '')}
-                            onBlur={() => inputActionHandler('emailError', validationRules.isEmailValid(email))}
-                        />
-                    </Spacer>
-                    <Spacer size={'large'}>
-                        <AuthInput
-                            mode="outlined"
-                            label="Password"
-                            placeholder="Enter Password"
-                            value={password}
-                            error={passwordError}
-                            onChangeText={(password) => inputActionHandler('password', password)}
-                            onFocus={() => inputActionHandler('passwordError', '')}
-                            onBlur={() => inputActionHandler('passwordError', validationRules.safeVarChars(password))}
-                            secureTextEntry={flatTextSecureEntry}
-                            right={
-                                <TextInput.Icon
-                                    name={flatTextSecureEntry ? 'eye-off' : 'eye' }
-                                    onPress={() =>
-                                        dispatch({
-                                            type: 'flatTextSecureEntry',
-                                            payload: !flatTextSecureEntry,
-                                        })
-                                    }
-                                    forceTextInputFocus={false}
-                                />
-                            }
-                        />
-                    </Spacer>
-                    <HelperText
-                        type="error"
-                        // visible={!_isPasswordValid(password)}
-                        visible={ true }
-                        padding='none'
-                        style={styles.helper}>
-                        Error: Only letters are allowed
-                    </HelperText>
-                    <Spacer size={'large'}>
-                    <View style={{ flexDirection: 'row', justifyContent:'space-between'}}>
-                    <LinkButton onPress={()=>navigation.navigate('ForgotPassword')}>Forgot Password</LinkButton>
-                    <LinkButton>Private Policy</LinkButton>
-                    </View>
-                    </Spacer>
-                    <Spacer size={'xl'}>
-                    <View>
-                        {!isLoading ? (
-                            <AuthButton
-                                icon="lock-open-outline"
-                                mode="contained"
-                                onPress={() => onLogin(email, password)}
-                                loading={true}
-                            >
-                               Log in
-                            </AuthButton>
-                        ) : (
-                            <ActivityIndicator animating={true} color={Colors.blue300} />
-                        )}
-                    </View>
-                        </Spacer>
-                        {/*</AccountContainer>*/}
-                </ScreenWrapperStyled>
-
-    );
-};
-
- export default  LoginScreen
-
-// Login.title = 'TextInput';
-//
-const styles = StyleSheet.create({
-    container: {
-        // padding: 8,
-        flex:1,
-        justifyContent: 'center',
-        alignItems:'center'
-    },
-    helpersWrapper: {
+const styles = StyleSheet.create( {
+    linkButtonSpacing: {
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
-    wrapper: {
-        flex: 1,
+    formError: {
+        justifyContent: 'center',
     },
-    helper: {
-        marginTop:0,
-        marginBottom:0 ,
-        paddingVertical:0,
-        marginVertical:0
-    },
-    counterHelper: {
-        textAlign: 'right',
-    },
-    authInput:{
-        width: 300,
-    },
-});
+} );
+
+const initialState = {
+    email: '',
+    emailError: undefined,
+    password: '',
+    passwordError: undefined,
+    flatTextSecureEntry: true,
+};
+
+const LoginScreen = ( { navigation } ) => {
+    const {
+        onLogin, isLoading, error, setError,
+    } = useContext( AuthenticationContext );
+    const [ state, dispatch ] = React.useReducer( inputReducer, initialState );
+    const {
+        email,
+        emailError,
+        password,
+        passwordError,
+        flatTextSecureEntry,
+    } = state;
+
+    const inputActionHandler = ( type, payload ) => {
+        if ( error ) {
+            setError( null );
+        }
+
+        return dispatch( { type, payload } );
+    };
+
+    return (
+        <ScreenWrapperStyled>
+            <Title style={ styles.text }>
+                Log in to
+                {' '}
+                {APP_NAME}
+            </Title>
+            <Spacer size="md">
+                <AuthInput
+                    mode="outlined"
+                    label="Email"
+                    placeholder="Enter email"
+                    value={ email }
+                    error={ emailError }
+                    onChangeText={ ( email ) => inputActionHandler( 'email', email ) }
+                    onFocus={ () => inputActionHandler( 'emailError', '' ) }
+                    onBlur={ () => inputActionHandler( 'emailError', validationRules.isEmailValid( email ) ) }
+                />
+            </Spacer>
+            <TextFieldHelperMessage
+                message={ emailError }
+                messageType="error"
+            />
+            <Spacer size="md">
+                <AuthInput
+                    mode="outlined"
+                    label="Password"
+                    placeholder="Enter Password"
+                    value={ password }
+                    error={ passwordError }
+                    onChangeText={ ( password ) => inputActionHandler( 'password', password ) }
+                    onFocus={ () => inputActionHandler( 'passwordError', '' ) }
+                    onBlur={ () => inputActionHandler( 'passwordError', validationRules.safeVarChars( password ) ) }
+                    secureTextEntry={ flatTextSecureEntry }
+                    right={ (
+                        <TextInput.Icon
+                            name={ flatTextSecureEntry ? 'eye-off' : 'eye' }
+                            onPress={ () => dispatch( {
+                                type: 'flatTextSecureEntry',
+                                payload: !flatTextSecureEntry,
+                            } ) }
+                            forceTextInputFocus={ false }
+                        />
+                    ) }
+                />
+            </Spacer>
+            <TextFieldHelperMessage
+                message={ passwordError }
+                messageType="error"
+            />
+            <Spacer size="md">
+                <View style={ styles.linkButtonSpacing }>
+                    <LinkButton onPress={ () => navigation.navigate( 'ForgotPassword' ) }>Forgot Password</LinkButton>
+                    <LinkButton>Private Policy</LinkButton>
+                </View>
+            </Spacer>
+            <Spacer size="md">
+                <View>
+                    <AuthButton
+                        icon="lock-open-outline"
+                        mode="contained"
+                        onPress={ () => onLogin( email, password ) }
+                        loading={ isLoading }
+                    >
+                        Log in
+                    </AuthButton>
+                </View>
+            </Spacer>
+            <Spacer size="md">
+                <TextFieldHelperMessage
+                    message={ error }
+                    messageType="error"
+                    style={ styles.formError }
+                />
+            </Spacer>
+        </ScreenWrapperStyled>
+    );
+};
+
+export default LoginScreen;

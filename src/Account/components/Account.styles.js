@@ -1,38 +1,27 @@
 import React,{ Fragment } from 'react';
-import {ImageBackground, View, StyleSheet, Platform, KeyboardAvoidingView, Image, StatusBar} from 'react-native';
-import { withTheme, Button, TextInput,useTheme,Text, } from 'react-native-paper';
+import { View, StyleSheet, StatusBar} from 'react-native';
+import { Button, TextInput,useTheme,Text, } from 'react-native-paper';
 import { colors } from '../../infrastructure/theme/colors';
-// import { CustomText as Text } from '../../components/CustomText/CustomText';
 import ScreenWrapper from "../../components/ScreenWrappers/ScreenWrapper";
 
-
-export const AccountBackground = ({children,...rest}) => {
-    return <ImageBackground style={ styles.accountBackground } {...rest}>{children}</ImageBackground>;
-}
-
-export const ScreenWrapperStyled = ({children,...rest}) => {
+export const ScreenWrapperStyled = ({ children,...rest }) => {
     const { space } = useTheme();
     return(
        <ScreenWrapper
-        contentContainerStyle={[ styles.accountBackground, { paddingLeft: space[3],paddingRight: space[3] }]}
-        // keyboardShouldPersistTaps={'always'}
-        // removeClippedSubviews={false}
+        contentContainerStyle={[
+            styles.accountBackground,
+            {
+                paddingLeft: space['md'],
+                paddingRight: space['md']
+            }
+        ]}
         {...rest}>{children}</ScreenWrapper>
     )
-}
-
-export const AccountCover = ({children,...rest}) => {
-    return <View style={ styles.accountCover } {...rest}>{children}</View>;
 }
 
 export const ErrorContainer = ({children,...rest}) => {
     const { space } = useTheme();
     return <View style={ [ styles.errorContainer, { marginTop: space[2],marginBottom: space[2] }] } {...rest}>{children}</View>;
-}
-
-export const AccountContainer = ({children,...rest}) => {
-    const { space } = useTheme();
-    return <View style={ [ styles.accountContainer, { marginTop: space[2] }] } {...rest}>{children}</View>;
 }
 
 export const Title = ({children,...rest}) => {

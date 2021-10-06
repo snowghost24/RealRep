@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Text, View} from "react-native";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ProfileScreen from "../../screens/ProfileScreen";
@@ -8,6 +8,7 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import FeedScreen from "../../screens/FeedScreen";
 import FeedTopNavigator from "./FeedTopNavigator";
 import CommentsListBanner from "../../components/Banners/CommentsListBanner";
+import AxiosInstance from "../../utils/axiosInstance";
 
 
 const Tab = createMaterialBottomTabNavigator();
@@ -28,10 +29,61 @@ function Tackle({navigation}) {
 }
 
 function Comment(props) {
+    const [ commentsList, setCommentsList ] = useState([])
+
+    const getComments = () => {
+        AxiosInstance.get('/news_articles/1/comments').then((response) => {
+            console.log("my response",response.data);
+            // setCommentsList(response.data);
+            // return AsyncStorage.setItem(BEARER_TOKEN, response.data.token).then(()=>{
+            //     return response
+            // });
+        }).catch((e)=>{ console.log("an error occurred", e)});
+    }
+
+    const postComment = () => {
+        console.log("attempting to post")
+        AxiosInstance.post('/news_articles/1/comment',{ comment:"hello world we made it"}).then((response) => {
+            console.log("to a post",response);
+            // setCommentsList(response.data);
+            // return AsyncStorage.setItem(BEARER_TOKEN, response.data.token).then(()=>{
+            //     return response
+            // });
+        }).catch((e)=>{ console.log("an error occurred", e)});
+    }
+
+    const replyToComment = () => {
+        console.log("attempting to post")
+        AxiosInstance.post('/comments/1',{
+            'commentable_type' : 1,
+            'commentable_id':1,
+            'message': "did it work now"
+
+        }).then((response) => {
+            console.log("replaying to post",response);
+            // setCommentsList(response.data);
+            // return AsyncStorage.setItem(BEARER_TOKEN, response.data.token).then(()=>{
+            //     return response
+            // });
+        }).catch((e)=>{ console.log("an error occurred", e)});
+    }
+
+    useEffect(()=>{
+        getComments();
+    },[]);
+
     return (
         <View>
             <CommentsListBanner {...props}/>
-            <Text>Actions Screen</Text>
+            <Text>Comment Screen</Text>
+            <Button
+                title="Post a comment"
+                onPress={ postComment }
+            />
+            <Button
+                title="Reply to comment"
+                onPress={ replyToComment }
+            />
             <Button
                 title="Message Screen can go to profile"
                 onPress={() =>
