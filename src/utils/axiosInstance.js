@@ -1,23 +1,21 @@
 import axios from 'axios';
+import { getData } from './helperFunctions';
+import { BASE_URL, BEARER_TOKEN } from './constants';
 
 const instance = axios.create( {
-    baseURL: 'http://real_rep.test/api',
-    headers: { 'Content-Type': 'application/json' },
+    baseURL: BASE_URL,
+    // headers: { 'Content-Type': 'application/json;image/*' },
+    headers: { 'Content-Type': 'application/json;multipart/form-data' },
     responseType: 'json',
 } );
 
-instance.interceptors.request.use( ( config ) =>
-// Do something before request is sent
-// const csrf = sessionStorage.getItem( 'csrf' ) || '';
-
-    // if ( config.url !== 'auth/login' ) {
-    //     config.headers.Authorization = `Bearer ${ getTokenCookie() }`;
-    // }
-    config,
-( error ) => {
-    console.log( 'error not passing', error );
-    // Do something with request error
-    return Promise.reject( error );
-} );
+instance.interceptors.request.use( ( config ) => getData( BEARER_TOKEN ).then( ( token ) => {
+    if ( token ) {
+        // eslint-disable-next-line no-param-reassign
+        config.headers.Authorization = `Bearer ${ token }`;
+        return config;
+    }
+    return config;
+} ), ( error ) => Promise.reject( error ) );
 
 export default instance;

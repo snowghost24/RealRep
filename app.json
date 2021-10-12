@@ -2,6 +2,7 @@
   "expo": {
     "name": "VoteSmart",
     "slug": "VoteSmart",
+    "scheme": "https",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

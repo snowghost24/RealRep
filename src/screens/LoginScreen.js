@@ -2,8 +2,10 @@ import React, { useContext } from 'react';
 import {
     TextInput,
     Title,
+    Text,
 } from 'react-native-paper';
 import { StyleSheet, View } from 'react-native';
+import * as WebBrowser from 'expo-web-browser';
 import { validationRules } from '../utils/helperFunctions';
 import {
     AuthButton,
@@ -16,6 +18,7 @@ import { AuthenticationContext } from '../services/AuthenticationContext';
 import { inputReducer } from '../utils';
 import { APP_NAME } from '../utils/constants';
 import TextFieldHelperMessage from '../components/TextFieldHelperMessage/TextFieldHelperMessage';
+import GoogleAuthButton from '../components/Buttons/GoogleAuthButton';
 
 const styles = StyleSheet.create( {
     linkButtonSpacing: {
@@ -28,18 +31,24 @@ const styles = StyleSheet.create( {
 } );
 
 const initialState = {
-    email: '',
+    email: 'jguzman24680@gmail.com',
     emailError: undefined,
-    password: '',
+    password: 'testing1',
     passwordError: undefined,
     flatTextSecureEntry: true,
 };
 
+WebBrowser.maybeCompleteAuthSession();
+
 const LoginScreen = ( { navigation } ) => {
-    const {
-        onLogin, isLoading, error, setError,
-    } = useContext( AuthenticationContext );
     const [ state, dispatch ] = React.useReducer( inputReducer, initialState );
+    const {
+        onLogin,
+        isLoading,
+        error,
+        setError,
+    } = useContext( AuthenticationContext );
+
     const {
         email,
         emailError,
@@ -63,6 +72,12 @@ const LoginScreen = ( { navigation } ) => {
                 {' '}
                 {APP_NAME}
             </Title>
+            <Spacer size="md">
+                <GoogleAuthButton />
+            </Spacer>
+            <Spacer size="md">
+                <Text variant="caption" style={ { textAlign: 'center' } }>or</Text>
+            </Spacer>
             <Spacer size="md">
                 <AuthInput
                     mode="outlined"

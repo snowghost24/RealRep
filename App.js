@@ -15,6 +15,8 @@ import {
     DefaultTheme,
 } from 'react-native-paper';
 import { useKeepAwake } from 'expo-keep-awake';
+import Constants from 'expo-constants';
+import { AlertsProvider } from 'react-native-paper-alerts';
 import AppNavContainer from './src/infrastructure/navigators';
 import { theme } from './src/infrastructure/theme';
 import { PreferencesContext } from './src/services/PreferencesContext';
@@ -33,6 +35,7 @@ import { PERSISTENCE_KEY, PREFERENCES_KEY } from './src/utils/constants';
 // });
 
 import { AuthenticationContextProvider } from './src/services/AuthenticationContext';
+import { LoaderContext, LoaderContextProvider } from './src/services/LoaderContext';
 
 const CustomDarkTheme = {
     ...DarkTheme,
@@ -82,7 +85,6 @@ const CustomDefaultTheme = {
 };
 
 function App() {
-    // console.log("the custom default theme",CustomDefaultTheme)
     useKeepAwake();
     const [ isReady, setIsReady ] = React.useState( false );
     const [ initialState, setInitialState ] = React.useState();
@@ -154,7 +156,7 @@ function App() {
 
             if ( I18nManager.isRTL !== rtl ) {
                 I18nManager.forceRTL( rtl );
-                Updates.reloadFromCache();
+                // Updates.reloadFromCache();
             }
         };
 
@@ -178,15 +180,21 @@ function App() {
     // const isAuthenticated = false;
     return (
         <PaperProvider theme={ theme }>
-            <SafeAreaProvider>
-                <AuthenticationContextProvider>
-                    <PreferencesContext.Provider value={ preferences }>
-                        <>
-                            <AppNavContainer initialState={ initialState } theme={ theme } preferences={ preferences } />
-                        </>
-                    </PreferencesContext.Provider>
-                </AuthenticationContextProvider>
-            </SafeAreaProvider>
+            <LoaderContextProvider>
+                <AlertsProvider>
+                    <SafeAreaProvider>
+                        <AuthenticationContextProvider>
+                            <PreferencesContext.Provider value={ preferences }>
+                                <AppNavContainer
+                                    initialState={ initialState }
+                                    theme={ theme }
+                                    preferences={ preferences }
+                                />
+                            </PreferencesContext.Provider>
+                        </AuthenticationContextProvider>
+                    </SafeAreaProvider>
+                </AlertsProvider>
+            </LoaderContextProvider>
         </PaperProvider>
     );
 }

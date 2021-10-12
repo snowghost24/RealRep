@@ -50,7 +50,14 @@ function AppNavContainer( { initialState, theme } ) {
                     ) : (
 
                     // <HomeTabsNavigator />
-                        <Drawer.Navigator drawerContent={ ( props ) => <DrawerContentFeature { ...props } /> }>
+                        <Drawer.Navigator
+                            drawerContent={ ( props ) => (
+                                <DrawerContentFeature
+                                    onLogout={ onLogout }
+                                    { ...props }
+                                />
+                            ) }
+                        >
                             <Drawer.Screen
                                 name="NewHome"
                                 component={ NewHome }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { useTheme } from "react-native-paper";
+import { useTheme } from 'react-native-paper';
 
 const positionVariant = {
     top: 'marginTop',
@@ -9,11 +9,13 @@ const positionVariant = {
     bottom: 'marginBottom',
 };
 
-export const Spacer = (props) => {
-    const property = positionVariant[props.position];
+export const Spacer = ( {
+    children, position, size, style,
+} ) => {
+    const property = positionVariant[ position ];
     const theme = useTheme();
-    return (<View style={{ [property] : theme.space[props.size] }}>{props.children}</View>);
-}
+    return ( <View style={ { [ property ]: theme.space[ size ], ...style } }>{children}</View> );
+};
 
 Spacer.defaultProps = {
     position: 'top',

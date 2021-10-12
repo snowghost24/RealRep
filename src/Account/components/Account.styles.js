@@ -1,89 +1,112 @@
-import React,{ Fragment } from 'react';
-import { View, StyleSheet, StatusBar} from 'react-native';
-import { Button, TextInput,useTheme,Text, } from 'react-native-paper';
+import React, { Fragment } from 'react';
+import { View, StyleSheet, StatusBar } from 'react-native';
+import {
+    Button, TextInput, useTheme, Text,
+} from 'react-native-paper';
 import { colors } from '../../infrastructure/theme/colors';
-import ScreenWrapper from "../../components/ScreenWrappers/ScreenWrapper";
+import ScreenWrapper from '../../components/ScreenWrappers/ScreenWrapper';
 
-export const ScreenWrapperStyled = ({ children,...rest }) => {
+export const ScreenWrapperStyled = ( { children, ...rest } ) => {
     const { space } = useTheme();
-    return(
-       <ScreenWrapper
-        contentContainerStyle={[
-            styles.accountBackground,
-            {
-                paddingLeft: space['md'],
-                paddingRight: space['md']
-            }
-        ]}
-        {...rest}>{children}</ScreenWrapper>
-    )
-}
+    return (
+        <ScreenWrapper
+            contentContainerStyle={ [
+                styles.accountBackground,
+                {
+                    paddingLeft: space.md,
+                    paddingRight: space.md,
+                },
+            ] }
+            { ...rest }
+        >{children}
+        </ScreenWrapper>
+    );
+};
 
-export const ErrorContainer = ({children,...rest}) => {
+export const ErrorContainer = ( { children, ...rest } ) => {
     const { space } = useTheme();
-    return <View style={ [ styles.errorContainer, { marginTop: space[2],marginBottom: space[2] }] } {...rest}>{children}</View>;
-}
+    return <View style={ [ styles.errorContainer, { marginTop: space[ 2 ], marginBottom: space[ 2 ] } ] } { ...rest }>{children}</View>;
+};
 
-export const Title = ({children,...rest}) => {
-    return <Text {...rest}>{children}</Text>;
-}
+export const Title = ( { children, ...rest } ) => <Text { ...rest }>{children}</Text>;
 
-export const AuthButton = ({children,...rest}) => {
-    let {space } = useTheme();
-    return <Button
-        labelStyle={{
-            lineHeight:35
-        }}
-        style={ [ styles.authButton ]} {...rest}>{children}</Button>;
-}
+export const AuthButton = ( { children, ...rest } ) => {
+    const { space } = useTheme();
+    return (
+        <Button
+            labelStyle={ {
+                lineHeight: 35,
+            } }
+            style={ [ styles.authButton ] }
+            { ...rest }
+        >{children}
+        </Button>
+    );
+};
 
-export const GoogleAuthButton = ({children,...rest}) => {
-    let {space } = useTheme();
-    return <Button
-        labelStyle={{
-            lineHeight:35,
+export const GoogleStyledButton = ( { children, ...rest } ) => (
+    <Button
+        labelStyle={ {
+            lineHeight: 35,
             fontWeight: 'bold',
             fontSize: 18,
-        }}
-        uppercase={false}
-        color='#4285f4'
-        style={ [ styles.googleButton ]}
-        {...rest}>{children}</Button>;
-}
+        } }
+        icon="google"
+        mode="outlined"
+        v
+        uppercase={ false }
+        color="#4285f4"
+        style={ [ styles.googleButton ] }
+        { ...rest }
+    >{children}
+    </Button>
+);
 
-export const FacebookAuthButton = ({children,...rest}) => {
-    let {space } = useTheme();
-    return <Button
-        labelStyle={{
-            lineHeight:35,
-            fontWeight: 'bold',
-            fontSize: 18,
+export const FacebookAuthButton = ( { children, ...rest } ) => {
+    const { space } = useTheme();
+    return (
+        <Button
+            labelStyle={ {
+                lineHeight: 35,
+                fontWeight: 'bold',
+                fontSize: 18,
 
-        }}
-        uppercase={false}
-        icon={{ source: "facebook", direction: 'ltr' }}
-        // icon={"facebook"}
-        color="#416BC1"
-        style={ [ styles.facebookButton ]} {...rest}>{children}</Button>;
-}
+            } }
+            uppercase={ false }
+            icon={ { source: 'facebook', direction: 'ltr' } }
+            // icon={"facebook"}
+            color="#416BC1"
+            style={ [ styles.facebookButton ] }
+            { ...rest }
+        >{children}
+        </Button>
+    );
+};
 
-export const LinkButton = ({children,...rest}) => {
-    let {space } = useTheme();
-    return <Text
-        labelStyle={{
-            lineHeight:35
-        }}
-        style={ [ styles.authButton ]} {...rest}>{children}</Text>;
-}
+export const LinkButton = ( { children, ...rest } ) => {
+    const { space } = useTheme();
+    return (
+        <Text
+            labelStyle={ {
+                lineHeight: 35,
+            } }
+            style={ [ styles.authButton ] }
+            { ...rest }
+        >{children}
+        </Text>
+    );
+};
 
-export const AuthInput = ({children,...rest}) => {
-    return <TextInput
+export const AuthInput = ( { children, ...rest } ) => (
+    <TextInput
         // mode="outlined"
-        style={ styles.authInput } {...rest}>{children}</TextInput>;
-}
+        style={ styles.authInput }
+        { ...rest }
+    >{children}
+    </TextInput>
+);
 
-
-const styles = StyleSheet.create({
+const styles = StyleSheet.create( {
     authButton: {
         color: colors.brand.primary,
     },
@@ -91,48 +114,48 @@ const styles = StyleSheet.create({
         // color: '#757575'
     },
     facebookButton: {
-       // color: '#F5F5F5'
+        // color: '#F5F5F5'
     },
-    errorContainer:{
+    errorContainer: {
         maxWidth: 300,
         alignItems: 'center',
         alignSelf: 'center',
         marginTop: 8,
-        marginBottom: 8
+        marginBottom: 8,
     },
-    authInput:{
+    authInput: {
         // width: 300
     },
-    accountContainer:{
+    accountContainer: {
         backgroundColor: 'rgba(255, 255, 255, 0.5)',
         // padding: 16,
         // marginTop: 8
     },
-    accountCover:{
+    accountCover: {
         position: 'absolute',
         width: '100%',
         height: '100%',
-        backgroundColor: 'rgba(255, 255, 255, 0.3)'
+        backgroundColor: 'rgba(255, 255, 255, 0.3)',
     },
-    accountBackground:{
+    accountBackground: {
         flex: 1,
         justifyContent: 'center',
         paddingTop: StatusBar.currentHeight,
 
-    },   wrapper: {
-        // flex: 1,
-        height:'100%',
-        backgroundColor:'green'
     },
-})
-
+    wrapper: {
+        // flex: 1,
+        height: '100%',
+        backgroundColor: 'green',
+    },
+} );
 
 // export const AuthButton = styled(Button)
 
 //     .attrs({
 //     color: colors.brand.primary,
 // });
-    // `padding: ${(props) => props.theme.space[2]}`;
+// `padding: ${(props) => props.theme.space[2]}`;
 
 // export const AuthButton = () => {
 //     let theme = useTheme();
@@ -142,9 +165,6 @@ const styles = StyleSheet.create({
 //   padding: ${theme.space[2]};
 // `
 // }
-
-
-
 
 //
 // export const AuthInput = styled(TextInput)`

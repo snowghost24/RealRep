@@ -9,8 +9,10 @@ import {
     Text,
     Colors,
     useTheme,
+    Avatar,
 } from 'react-native-paper';
 import * as Updates from 'expo-updates';
+import DrawerTitle from './DrawerTitle';
 
 const DrawerItemsData = [
     { label: 'Inbox', icon: 'inbox', key: 0 },
@@ -33,7 +35,12 @@ const DrawerItemsData = [
 ];
 
 const DrawerItems = ( {
-    navigation, toggleTheme, toggleRTL, isRTL, isDarkTheme, onLogout,
+    navigation,
+    toggleTheme,
+    toggleRTL,
+    isRTL,
+    isDarkTheme,
+    onLogout,
 } ) => {
     const [ drawerItemIndex, setDrawerItemIndex ] = React.useState( 0 );
 
@@ -56,9 +63,14 @@ const DrawerItems = ( {
             alwaysBounceVertical={ false }
             style={ [ styles.drawerContent, { backgroundColor: colors.surface } ] }
         >
-            <Drawer.Section title="Profile and Settings">
+            <Drawer.Section title={
+                // <Text>Title</Text>
+                <DrawerTitle />
+            }
+            >
                 {DrawerItemsData.map( ( props, index ) => (
                     <Drawer.Item
+                        style={ { marginTop: props.key === 0 ? 20 : 0 } }
                         { ...props }
                         key={ props.key }
                         theme={
