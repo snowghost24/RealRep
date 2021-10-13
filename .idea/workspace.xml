@@ -5,34 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9a4c022-8924-45a6-afcc-56359a8b0ea2" name="Default Changelist" comment="iumm">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Buttons/GoogleAuthButton.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Icons/UserIcon.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/UserIconWithUpload.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/features/DrawerTitle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/LoaderContext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Cards/NewsArticleCard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/UsNewsScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Account/components/Account.styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account/components/Account.styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Spacer/Spacer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Spacer/Spacer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/navigators/AccountNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/navigators/AccountNavigator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/navigators/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/navigators/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/navigators/FeedTopNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/navigators/NewsTopNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/navigators/NewHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/navigators/NewHome.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/FeedScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/FeedScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/ForgotPasswordScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/ForgotPasswordScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/LoginScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/LoginScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/RegisterScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/RegisterScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/features/DrawerContentFeature.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/features/DrawerContentFeature.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/features/DrawerItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/features/DrawerItems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/AuthenticationContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AuthenticationContext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/axiosInstance.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/axiosInstance.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/helperFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/helperFunctions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +46,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="eslint.code.style.apply.dismiss" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ios" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/screens" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -80,6 +58,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/screens" />
       <recent name="$PROJECT_DIR$/ios" />
       <recent name="$PROJECT_DIR$/assets/images" />
     </key>
@@ -123,6 +102,7 @@
       <workItem from="1633482161748" duration="12809000" />
       <workItem from="1633537674353" duration="63895000" />
       <workItem from="1633891968880" duration="44996000" />
+      <workItem from="1634077359144" duration="13978000" />
     </task>
     <servers />
   </component>

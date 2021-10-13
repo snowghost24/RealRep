@@ -28,15 +28,8 @@ const FeedScreen = ( { navigation } ) => {
     const mode = isOutlined ? 'outlined' : 'elevated';
 
     useEffect( () => {
-        getData( BEARER_TOKEN ).then( ( token ) => {
-            console.log( 'token does exist', token );
-        } );
         AxiosInstance.get( '/news_articles' ).then( ( response ) => {
-            // console.log("my response",response.data);
             setArticles( response.data );
-            // return AsyncStorage.setItem(BEARER_TOKEN, response.data.token).then(()=>{
-            //     return response
-            // });
         } ).catch( ( e ) => { console.log( 'an error occurred getting news', e.response ); } );
     }, [] );
 
