@@ -6,7 +6,7 @@ import {
 import * as ImagePicker from 'expo-image-picker';
 import { get } from 'lodash';
 import { pickImage, uploadFile } from '../utils/helperFunctions';
-import UserIcon from '../components/Icons/UserIcon';
+import UserIconButton from '../components/Icons/UserIconButton';
 import { LoaderContext } from '../services/LoaderContext';
 import { AuthenticationContext } from '../services/AuthenticationContext';
 
@@ -61,7 +61,7 @@ export default function UserIconWithUpload() {
 
     return (
         <>
-            <UserIcon handleClick={ createThreeButtonAlert } />
+            <UserIconButton handleClick={ createThreeButtonAlert } />
         </>
 
     );

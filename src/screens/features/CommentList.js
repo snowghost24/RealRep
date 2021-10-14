@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 import AxiosInstance from '../utils/axiosInstance';
 import NewsArticleCard from '../components/Cards/NewsArticleCard';
 
-const UsNewsScreen = ( { navigation } ) => {
+const CommentList = ( { navigation } ) => {
     const { colors: { background } } = useTheme();
     const [ articles, setArticles ] = React.useState( [] );
     const keyExtractor = ( item ) => item.id.toString();
@@ -22,11 +22,11 @@ const UsNewsScreen = ( { navigation } ) => {
         />
     );
 
-    useEffect( () => {
-        AxiosInstance.get( '/news_articles' ).then( ( response ) => {
-            setArticles( response.data );
-        } ).catch( ( e ) => { console.log( 'an error occurred getting news', e.response ); } );
-    }, [] );
+    // useEffect( () => {
+    //     AxiosInstance.get( '/news_articles' ).then( ( response ) => {
+    //         setArticles( response.data );
+    //     } ).catch( ( e ) => { console.log( 'an error occurred getting news', e.response ); } );
+    // }, [] );
 
     return (
         <FlatList
@@ -45,7 +45,7 @@ const UsNewsScreen = ( { navigation } ) => {
     );
 };
 
-UsNewsScreen.title = 'Card';
+CommentList.title = 'Card';
 
 const styles = StyleSheet.create( {
     container: {
@@ -69,4 +69,4 @@ const styles = StyleSheet.create( {
     },
 } );
 
-export default UsNewsScreen;
+export default CommentList;

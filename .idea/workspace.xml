@@ -5,12 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9a4c022-8924-45a6-afcc-56359a8b0ea2" name="Default Changelist" comment="iumm">
-      <change afterPath="$PROJECT_DIR$/src/components/Cards/NewsArticleCard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/UsNewsScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Comment/CommentInputField.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Comment/CommentReplyContainer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Comment/CommentTitle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Comment/SimpleComment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Comment/SimpleReplyComment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Icons/LikeIconButton.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/CommentScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/TestScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/features/CommentList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/navigators/FeedTopNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/navigators/NewsTopNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Banners/CommentsListBanner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Banners/CommentsListBanner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Cards/NewsArticleCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cards/NewsArticleCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Icons/UserIcon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Icons/UserIconButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infrastructure/navigators/AccountNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/navigators/AccountNavigator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/infrastructure/navigators/NewHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/navigators/NewHome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/FeedScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/FeedScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/LoginScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/LoginScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/UsNewsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/UsNewsScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/UserIconWithUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/UserIconWithUpload.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +115,7 @@
       <workItem from="1633482161748" duration="12809000" />
       <workItem from="1633537674353" duration="63895000" />
       <workItem from="1633891968880" duration="44996000" />
-      <workItem from="1634077359144" duration="13978000" />
+      <workItem from="1634077359144" duration="45645000" />
     </task>
     <servers />
   </component>

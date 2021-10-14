@@ -5,7 +5,25 @@ import { Image } from 'react-native';
 import { AuthenticationContext } from '../../services/AuthenticationContext';
 // import {Button} from "react-native";
 
-const UserIcon = ( { size, handleClick } ) => {
+export const UserIcon = ( { size, ...rest } ) => {
+    const { user } = useContext( AuthenticationContext );
+    return get( user, 'avatar' )
+        ? (
+            <Avatar.Image
+                size={ size }
+                source={ { uri: user.avatar } }
+                { ...rest }
+            />
+        ) : (
+            <Avatar.Text
+                size={ size }
+                label="XD"
+                { ...rest }
+            />
+        );
+};
+
+const UserIconButton = ( { size, handleClick } ) => {
     const { user } = useContext( AuthenticationContext );
     console.log( 'esrs', handleClick );
     // console.log( 'userimage', user.avatar );
@@ -15,10 +33,7 @@ const UserIcon = ( { size, handleClick } ) => {
                 size={ size }
                 onPress={ handleClick }
                 icon={ ( { color } ) => (
-                    <Avatar.Image
-                        size={ size }
-                        source={ { uri: user.avatar } }
-                    />
+                    <UserIcon size={ size } />
                 ) }
             />
         )
@@ -33,8 +48,12 @@ const UserIcon = ( { size, handleClick } ) => {
         );
 };
 
-export default UserIcon;
+export default UserIconButton;
+
+UserIconButton.defaultProps = {
+    size: 50,
+};
 
 UserIcon.defaultProps = {
-    size: 50,
+    size: 30,
 };

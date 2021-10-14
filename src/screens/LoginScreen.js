@@ -73,7 +73,7 @@ const LoginScreen = ( { navigation } ) => {
                 {APP_NAME}
             </Title>
             <Spacer size="md">
-                <GoogleAuthButton />
+                {/* <GoogleAuthButton /> */}
             </Spacer>
             <Spacer size="md">
                 <Text variant="caption" style={ { textAlign: 'center' } }>or</Text>

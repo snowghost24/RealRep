@@ -6,6 +6,7 @@ import {
     useTheme,
 } from 'react-native-paper';
 import { Alert, StyleSheet } from 'react-native';
+import * as WebBrowser from 'expo-web-browser';
 
 const styles = StyleSheet.create( {
     container: {
@@ -30,6 +31,11 @@ const styles = StyleSheet.create( {
 } );
 
 const NewsArticleCard = ( { item, navigation } ) => {
+    const _handlePressButtonAsync = async( url ) => {
+        const result = await WebBrowser.openBrowserAsync( url );
+        // setResult( result );
+    };
+
     const { colors: { background } } = useTheme();
     return (
         <Card
@@ -38,6 +44,7 @@ const NewsArticleCard = ( { item, navigation } ) => {
                 Alert.alert( 'The City is Long Pressed' );
             } }
             mode="elevated"
+            onPress={ () => _handlePressButtonAsync( item.article_link ) }
         >
             <Card.Title
                 title={ item.title }
@@ -45,7 +52,10 @@ const NewsArticleCard = ( { item, navigation } ) => {
                 titleNumberOfLines={ 4 }
                 // left={(props) => <Avatar.Icon {...props} icon="city" />}
             />
-            <Card.Cover source={ { uri: item.media_link } } />
+            <Card.Cover
+
+                source={ { uri: item.media_link } }
+            />
             <Card.Content>
                 <Paragraph>
                     {item.to_question}
