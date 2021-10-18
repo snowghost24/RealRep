@@ -51,16 +51,16 @@ const styles = StyleSheet.create( {
     },
 } );
 
-const CommentInputField = ( { onSubmit } ) => {
+const CommentInputField = ( { postComment } ) => {
     const {
         colors: { primary },
     } = useTheme();
-    const [ text, onChangeText ] = React.useState( 'Useless Text' );
+    const [ text, onChangeText ] = React.useState( '' );
     const submit = () => {
-        onSubmit( text ).then( () => {
+        postComment( text ).then( () => {
             onChangeText( '' );
         } );
-        console.log( 'its been submited' );
+        console.log( 'its been submited', postComment );
     };
 
     const handleClick = () => {
@@ -99,7 +99,7 @@ const CommentInputField = ( { onSubmit } ) => {
                     disabled={ !text }
                     // color={Colors.red500}
                     size={ 34 }
-                    onPress={ () => console.log( 'Pressed' ) }
+                    onPress={ () => submit() }
                 />
                 {/* <TouchableOpacity */}
                 {/*    style={ styles.button } */}

@@ -13,6 +13,7 @@ import NewsTopNavigator from './NewsTopNavigator';
 import CommentsListBanner from '../../components/Banners/CommentsListBanner';
 import AxiosInstance from '../../utils/axiosInstance';
 import CommentScreen from '../../screens/CommentScreen';
+import TestCommentsScreen from '../../screens/testCommentsScreen';
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -78,7 +79,8 @@ function NewsStack( props ) {
         >
             <Stack.Screen name="News" component={ NewsTopNavigator } />
             <Stack.Screen name="Tackle" component={ Tackle } />
-            <Stack.Screen name="Comment" component={ CommentScreen } />
+            {/* <Stack.Screen name="Comment" component={ CommentScreen } /> */}
+            <Stack.Screen name="Comment" component={ TestCommentsScreen } />
             {/* <Stack.Screen name="Settings" component={Settings} /> */}
         </Stack.Navigator>
     );

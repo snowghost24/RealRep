@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { Avatar, IconButton } from 'react-native-paper';
+import { get } from 'lodash';
 import CommentReplyContainer from './CommentReplyContainer';
 import LikeIconButton from '../Icons/LikeIconButton';
 import CommentTitle from './CommentTitle';
@@ -40,6 +41,7 @@ const SimpleComment = ( {
     // handleViewReplies,
     // handleViewMore,
 } ) => {
+    // console.log( 'one itme', item );
     const [ viewMore, setViewMore ] = useState( false );
     // thee two beelow are temporary
     const [ temporary, setTemporary ] = useState( 1 );
@@ -68,6 +70,7 @@ const SimpleComment = ( {
         setLiked( !liked );
         console.log( '---Tagled like---' );
     };
+    const showViewMore = !viewMore && ( commentLength > 0 );
 
     return (
         <>
@@ -77,7 +80,8 @@ const SimpleComment = ( {
                     <Avatar.Image
                         size={ 35 }
                         style={ styles.image }
-                        // source={ { uri: user.avatar } }
+                        source={ { uri: item.profile_image } }
+                        // source={ { uri: get( item, 'commenter.avatar' ) ?? 'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?f=y' } }
                     />
                 ) }
                 right={ ( props ) => (
@@ -93,12 +97,21 @@ const SimpleComment = ( {
                     color: descriptionColor,
                     fontSize,
                 } ) => (
-                    <View>
-                        <Text numberOfLines={ 1 } style={ { color: descriptionColor, paddingTop: 4, paddingBottom: 4 } }>
-                            <Text>2h</Text>    <Text>124 Likes</Text> <Text onPress={ () => handleCommentReply() } style={ { marginLeft: 8 } }>  Reply</Text>
-                        </Text>
-                        { ( !viewMore && ( commentLength > 0 ) ) && <Text style={ { paddingBottom: 6 } } onPress={ () => handleViewReplies() }> - View Repliees</Text> }
-                    </View>
+                    <Text numberOfLines={ 5 } style={ { color: descriptionColor, paddingTop: 4, paddingBottom: 4 } }>
+                        <Text>2h</Text>    <Text>124 Likes</Text> <Text onPress={ () => handleCommentReply() } style={ { marginLeft: 8, flex: 1 } }>  Reply</Text>
+                        {'\n'}
+                        { ( !viewMore && ( commentLength > 0 ) ) && (
+                            <Text
+                                onPress={ () => handleViewReplies() }
+                                style={ {
+                                    lineHeight: 24,
+                                // visibility: showViewMore ? 'hidden' : 'visible',
+                                // display: 'inline-block',
+                                } }
+                            >View Replies
+                            </Text>
+                        ) }
+                    </Text>
                 ) }
             />
             { ( viewMore && ( commentLength > 0 ) ) && (
@@ -109,7 +122,6 @@ const SimpleComment = ( {
                 />
             ) }
 
-            <Divider />
         </>
     );
 };
