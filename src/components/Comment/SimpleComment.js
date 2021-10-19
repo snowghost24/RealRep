@@ -114,13 +114,13 @@ const SimpleComment = ( {
                     </Text>
                 ) }
             />
-            { ( viewMore && ( commentLength > 0 ) ) && (
-                <CommentReplyContainer
-                    thereIsMore={ thereIsMore }
-                    handleViewMore={ () => handleViewMore() }
-                    handleHideReplies={ () => handleHideReplies() }
-                />
-            ) }
+            {/* { ( viewMore && ( commentLength > 0 ) ) && ( */}
+            {/*    <CommentReplyContainer */}
+            {/*        thereIsMore={ thereIsMore } */}
+            {/*        handleViewMore={ () => handleViewMore() } */}
+            {/*        handleHideReplies={ () => handleHideReplies() } */}
+            {/*    /> */}
+            {/* ) } */}
 
         </>
     );

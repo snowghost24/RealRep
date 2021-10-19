@@ -178,17 +178,16 @@ const CommentScreen = ( props ) => {
         />
     );
 
-    async function getComments() {
-        try {
-            setIsLoading( true );
-            const response = await AxiosInstance.post( 'comments/NewsArticle/1' );
-            console.log( response.data );
-            setCommentsList( [ ...data, ...response.data.comments ] );
+    function getComments() {
+        setIsLoading( true );
+        AxiosInstance.post( 'comments/NewsArticle/1' ).then( ( res ) => {
+            console.log( res.data );
+            setCommentsList( [ ...data, ...res.data.comments ] );
             setIsLoading( false );
-        } catch ( e ) {
+        } ).catch( ( e ) => {
             setIsLoading( false );
             console.log( 'an error occurred', e.response );
-        }
+        } );
     }
 
     async function getReplies() {
@@ -312,7 +311,7 @@ const CommentScreen = ( props ) => {
             height: '100%',
         } }
         >
-            {/* <Button>test</Button> */}
+
             {/* <CommentsListBanner { ...props } style={ { flex: 1 } } /> */}
             <FlatList
                 initialNumToRender={ 10 }
@@ -322,8 +321,6 @@ const CommentScreen = ( props ) => {
                 //     paddingLeft: safeArea.left,
                 //     paddingRight: safeArea.right,
                 // }}
-                // style={{ backgroundColor: colors.background }}
-                // ItemSeparatorComponent={ () => ( <Text>hello</Text> ) }
                 renderItem={ renderItem }
                 keyExtractor={ keyExtractor }
                 data={ commentsList }

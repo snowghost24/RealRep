@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9a4c022-8924-45a6-afcc-56359a8b0ea2" name="Default Changelist" comment="iumm">
-      <change afterPath="$PROJECT_DIR$/src/screens/testCommentsScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Comment/CommentInputField.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Comment/CommentInputField.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Comment/CommentTitle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Comment/CommentTitle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Comment/SimpleComment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Comment/SimpleComment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/infrastructure/navigators/NewHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/infrastructure/navigators/NewHome.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/CommentScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/CommentScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/testCommentsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/testCommentsScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +104,7 @@
       <workItem from="1634310556180" duration="599000" />
       <workItem from="1634311285053" duration="25000" />
       <workItem from="1634311336031" duration="1051000" />
-      <workItem from="1634314264261" duration="47667000" />
+      <workItem from="1634314264261" duration="86653000" />
     </task>
     <servers />
   </component>
